@@ -79,6 +79,11 @@ button:focus-visible {
   z-index: 100;
 }
 
+main {
+  position: relative;
+  z-index: 20;
+}
+
 /* ==========================================================================
    Animated Flying Party Balloons
    ========================================================================== */
@@ -89,7 +94,7 @@ button:focus-visible {
   height: 100vh;
   pointer-events: none;
   overflow: hidden;
-  z-index: 15;
+  z-index: 25;
 }
 
 .floating-balloon {
@@ -101,8 +106,8 @@ button:focus-visible {
   animation:
     balloonFloat var(--speed, 20s) linear var(--delay, 0s) infinite,
     balloonSway 3.8s ease-in-out var(--delay, 0s) infinite alternate;
-  opacity: 0.84;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.35));
+  opacity: 0.72;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
   will-change: transform;
 }
 
