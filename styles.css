@@ -101,13 +101,13 @@ main {
   position: absolute;
   bottom: -160px;
   left: var(--left, 10%);
-  width: var(--size, 72px);
-  height: calc(var(--size, 72px) * 1.25);
+  width: var(--size, 60px);
+  height: calc(var(--size, 60px) * 1.25);
   animation:
-    balloonFloat var(--speed, 20s) linear var(--delay, 0s) infinite,
-    balloonSway 3.8s ease-in-out var(--delay, 0s) infinite alternate;
-  opacity: 0.72;
-  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
+    balloonFloat var(--speed, 25s) linear var(--delay, 0s) infinite,
+    balloonSway 4.2s ease-in-out var(--delay, 0s) infinite alternate;
+  opacity: 0.55;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.25));
   will-change: transform;
 }
 
