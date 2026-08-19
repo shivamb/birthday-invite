@@ -1,3 +1,7 @@
+// ==========================================================================
+// Shreya Turns Three | Birthday Celebration Countdown & Interactive Confetti
+// ==========================================================================
+
 const SECOND = 1_000;
 const MINUTE = 60 * SECOND;
 const HOUR = 60 * MINUTE;
@@ -19,43 +23,51 @@ function formatPart(value) {
   return String(value).padStart(2, "0");
 }
 
-function initializeCountdown() {
+export function initializeCountdown() {
   const countdown = document.querySelector("[data-countdown]");
   if (!countdown) return;
 
-  const targetMs = Date.parse(countdown.dataset.target);
-  const fields = {
-    days: countdown.querySelector("[data-days]"),
-    hours: countdown.querySelector("[data-hours]"),
-    minutes: countdown.querySelector("[data-minutes]"),
-    seconds: countdown.querySelector("[data-seconds]"),
-  };
-  const message = countdown.querySelector("[data-countdown-message]");
+  const targetAttr = countdown.getAttribute("data-target") || "2026-08-19T19:30:00+05:30";
+  const targetMs = Date.parse(targetAttr);
 
-  const render = () => {
-    const parts = getCountdownParts(targetMs);
+  const daysEl = countdown.querySelector("[data-days]");
+  const hoursEl = countdown.querySelector("[data-hours]");
+  const minutesEl = countdown.querySelector("[data-minutes]");
+  const secondsEl = countdown.querySelector("[data-seconds]");
+  const messageEl = countdown.querySelector("[data-countdown-message]");
 
-    for (const key of ["days", "hours", "minutes", "seconds"]) {
-      if (fields[key]) fields[key].textContent = formatPart(parts[key]);
-    }
+  const update = () => {
+    const parts = getCountdownParts(targetMs, Date.now());
+
+    if (daysEl) daysEl.textContent = formatPart(parts.days);
+    if (hoursEl) hoursEl.textContent = formatPart(parts.hours);
+    if (minutesEl) minutesEl.textContent = formatPart(parts.minutes);
+    if (secondsEl) secondsEl.textContent = formatPart(parts.seconds);
 
     if (parts.expired) {
       countdown.classList.add("is-finished");
-      if (message) message.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
+      if (messageEl) {
+        messageEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
+      }
+    } else {
+      countdown.classList.remove("is-finished");
     }
 
     return parts.expired;
   };
 
-  if (render()) return;
+  // Run immediately on call
+  update();
 
-  const timer = window.setInterval(() => {
-    if (render()) window.clearInterval(timer);
+  // Run interval every second
+  const timer = setInterval(() => {
+    if (update()) {
+      clearInterval(timer);
+    }
   }, SECOND);
 }
 
-// Confetti Particle System
-function initializeConfetti() {
+export function initializeConfetti() {
   const canvas = document.getElementById("confetti-canvas");
   if (!canvas) return;
 
@@ -63,10 +75,14 @@ function initializeConfetti() {
   let width = (canvas.width = window.innerWidth);
   let height = (canvas.height = window.innerHeight);
 
-  window.addEventListener("resize", () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
+  window.addEventListener(
+    "resize",
+    () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    },
+    { passive: true }
+  );
 
   const colors = [
     "#f5cf6d", // Gold
@@ -90,7 +106,9 @@ function initializeConfetti() {
       this.size = Math.random() * 8 + 6;
       this.shape = Math.random() > 0.4 ? "rect" : "circle";
 
-      const angle = isBurst ? Math.random() * Math.PI * 2 : (Math.random() * Math.PI) / 2 + Math.PI / 4;
+      const angle = isBurst
+        ? Math.random() * Math.PI * 2
+        : (Math.random() * Math.PI) / 2 + Math.PI / 4;
       const speed = isBurst ? Math.random() * 8 + 3 : Math.random() * 3 + 1.5;
 
       this.vx = Math.cos(angle) * speed;
@@ -164,19 +182,24 @@ function initializeConfetti() {
     });
   }
 
-  // Launch initial celebration blast after load
+  // Initial celebratory burst
   setTimeout(() => {
     launchConfetti(width * 0.3, height * 0.25, 45);
     launchConfetti(width * 0.7, height * 0.25, 45);
-  }, 700);
+  }, 600);
 }
 
+// Global browser init
 if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initializeCountdown();
-      initializeConfetti();
-    }, { once: true });
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        initializeCountdown();
+        initializeConfetti();
+      },
+      { once: true }
+    );
   } else {
     initializeCountdown();
     initializeConfetti();

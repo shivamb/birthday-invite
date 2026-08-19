@@ -440,5 +440,50 @@
         </div>
       </footer>
     </main>
+
+    <script>
+      // Immediate Countdown & Confetti Engine for Instant Performance in all environments
+      (function () {
+        function runCountdown() {
+          var countdown = document.querySelector("[data-countdown]");
+          if (!countdown) return;
+          var targetAttr = countdown.getAttribute("data-target") || "2026-08-19T19:30:00+05:30";
+          var targetMs = Date.parse(targetAttr);
+          var daysEl = countdown.querySelector("[data-days]");
+          var hoursEl = countdown.querySelector("[data-hours]");
+          var minutesEl = countdown.querySelector("[data-minutes]");
+          var secondsEl = countdown.querySelector("[data-seconds]");
+          var msgEl = countdown.querySelector("[data-countdown-message]");
+
+          function pad(n) { return String(n).padStart(2, "0"); }
+
+          function tick() {
+            var diff = Math.max(0, targetMs - Date.now());
+            var d = Math.floor(diff / 86400000);
+            var h = Math.floor((diff % 86400000) / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+
+            if (daysEl) daysEl.textContent = pad(d);
+            if (hoursEl) hoursEl.textContent = pad(h);
+            if (minutesEl) minutesEl.textContent = pad(m);
+            if (secondsEl) secondsEl.textContent = pad(s);
+
+            if (diff <= 0) {
+              countdown.classList.add("is-finished");
+              if (msgEl) msgEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
+            }
+          }
+          tick();
+          setInterval(tick, 1000);
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", runCountdown, { once: true });
+        } else {
+          runCountdown();
+        }
+      })();
+    </script>
   </body>
 </html>
