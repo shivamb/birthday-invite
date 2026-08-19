@@ -2,77 +2,200 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shreya Turns Three | Birthday Invitation</title>
     <meta
       name="description"
-      content="Join us for Shreya's third birthday on Wednesday, August 19 at 7:30 PM at Ice & Spice Restaurant, Aliganj."
+      content="You are cordially invited to celebrate Shreya's 3rd Birthday! Join us on Wednesday, August 19 at 7:30 PM at Ice & Spice Restaurant, Aliganj for an evening of cake, music & joy."
     />
     <link rel="canonical" href="http://shreya.hostapp.in/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/shreya-birthday.webp" />
+
+    <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Shreya Turns Three" />
+    <meta property="og:site_name" content="Shreya's 3rd Birthday Invitation" />
+    <meta property="og:title" content="🎉 Shreya is Turning 3! You're Invited to Celebrate 🎂" />
     <meta
       property="og:description"
-      content="Our little wonder is turning three — come celebrate with us!"
+      content="Join us for Shreya's 3rd birthday party on Wednesday, Aug 19, 7:30 PM at Ice & Spice Restaurant, Aliganj. Tap to see the details & countdown!"
     />
     <meta property="og:url" content="http://shreya.hostapp.in/" />
-    <meta
-      property="og:image"
-      content="http://shreya.hostapp.in/assets/shreya-birthday.webp"
-    />
-    <meta property="og:image:width" content="1086" />
-    <meta property="og:image:height" content="1448" />
-    <meta
-      property="og:image:alt"
-      content="Shreya celebrating her birthday with a cake"
-    />
+    <meta property="og:image" content="http://shreya.hostapp.in/assets/og-image.jpg" />
+    <meta property="og:image:secure_url" content="http://shreya.hostapp.in/assets/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="900" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content="Shreya's 3rd Birthday Celebration" />
+
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="theme-color" content="#071b14" />
+    <meta name="twitter:title" content="🎉 Shreya Turns 3 | Birthday Celebration Invitation" />
+    <meta
+      name="twitter:description"
+      content="Join us for Shreya's 3rd birthday party on Wednesday, Aug 19, 7:30 PM at Ice & Spice Restaurant, Aliganj. Tap to see the invitation!"
+    />
+    <meta name="twitter:image" content="http://shreya.hostapp.in/assets/og-image.jpg" />
+    <meta name="theme-color" content="#061612" />
+
+    <!-- Google Fonts for High-End Readability & Party Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,500;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="preload" href="assets/shreya-birthday.webp" as="image" />
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="script.js"></script>
   </head>
   <body>
+    <!-- Full-screen Celebratory Confetti Canvas -->
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+    <!-- Floating Party Balloons Animation Layer -->
+    <div class="balloon-container" aria-hidden="true">
+      <div class="floating-balloon balloon-gold" style="--left: 8%; --delay: 0s; --speed: 18s; --size: 65px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-rose" style="--left: 24%; --delay: 4s; --speed: 22s; --size: 80px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-champagne" style="--left: 42%; --delay: 1.5s; --speed: 19s; --size: 70px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-coral" style="--left: 62%; --delay: 6s; --speed: 24s; --size: 75px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-purple" style="--left: 78%; --delay: 2.5s; --speed: 20s; --size: 68px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-gold" style="--left: 90%; --delay: 8s; --speed: 21s; --size: 82px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-rose" style="--left: 14%; --delay: 11s; --speed: 23s; --size: 74px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+      <div class="floating-balloon balloon-champagne" style="--left: 54%; --delay: 13s; --speed: 17s; --size: 62px;">
+        <div class="balloon-body"></div>
+        <div class="balloon-string"></div>
+      </div>
+    </div>
+
     <main>
+      <!-- Hero Section -->
       <section class="hero" aria-labelledby="invite-title">
         <div class="ambient-light-field" aria-hidden="true">
-          <i></i><i></i><i></i><i></i><i></i>
+          <i style="top: 12%; left: 8%;"></i>
+          <i style="top: 22%; right: 12%;"></i>
+          <i style="top: 48%; left: 6%;"></i>
+          <i style="top: 65%; right: 8%;"></i>
+          <i style="top: 80%; left: 35%;"></i>
         </div>
 
+        <!-- Hero Photo Frame Panel -->
         <div class="photo-panel">
-          <img
-            class="hero-photo"
-            src="assets/shreya-birthday.webp"
-            alt="Shreya celebrating her birthday with a cake"
-            width="1086"
-            height="1448"
-            fetchpriority="high"
-          />
-          <div class="photo-vignette" aria-hidden="true"></div>
-          <div class="sparkles" aria-hidden="true">
-            <i></i><i></i><i></i><i></i><i></i><i></i>
+          <div class="photo-wrapper">
+            <img
+              class="hero-photo"
+              src="assets/shreya-birthday.webp"
+              alt="Shreya celebrating her birthday with a cake"
+              width="1086"
+              height="1448"
+              fetchpriority="high"
+            />
+            <div class="photo-border-glow" aria-hidden="true"></div>
+            <div class="photo-vignette" aria-hidden="true"></div>
+            <div class="sparkles" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="photo-badge">
+              <span class="badge-icon">🎂</span>
+              <span class="badge-text">19 · AUGUST · 2026</span>
+            </div>
           </div>
-          <p class="photo-caption"><span>19</span><span>08</span><span>26</span></p>
         </div>
 
+        <!-- Hero Copy & Invite Information -->
         <div class="hero-copy">
-          <div class="hero-ornament" aria-hidden="true">
-            <span></span><b>✦</b><span></span>
+          <div class="festive-badge">
+            <span class="sparkle-icon">✨</span>
+            <span>YOU ARE CORDIALLY INVITED</span>
+            <span class="sparkle-icon">✨</span>
           </div>
-          <p class="eyebrow">Our little wonder turns three</p>
-          <h1 id="invite-title"><span>Shreya</span><strong aria-label="turns three">3</strong></h1>
+
+          <p class="eyebrow">Our Little Wonder Turns Three</p>
+
+          <h1 id="invite-title">
+            <span class="name-text">Shreya</span>
+            <span class="age-badge" aria-label="turns three">
+              <span class="age-number">3</span>
+              <span class="age-label">YEARS OLD</span>
+            </span>
+          </h1>
+
           <p class="invitation-line">
-            A tiny hand, a world of wonder, and three years of magic.<br />
-            Come celebrate our brightest little star.
+            Three years of joyful smiles, tiny footsteps, and endless magic.<br />
+            Join us for an unforgettable evening filled with cake, laughter, and celebration!
           </p>
 
-          <div class="hero-date" aria-label="Wednesday, August 19 at 7:30 PM">
-            <div><span>Wednesday</span><strong>August 19</strong></div>
-            <span class="date-divider" aria-hidden="true"></span>
-            <div><span>Join us at</span><strong>7:30 PM</strong></div>
+          <!-- Quick Date & Venue Highlights Bar -->
+          <div class="hero-event-bar" aria-label="Event Details">
+            <div class="event-bar-item">
+              <div class="item-icon-box">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div class="item-text">
+                <span class="item-label">DATE</span>
+                <strong class="item-value">Wed, Aug 19, 2026</strong>
+              </div>
+            </div>
+
+            <div class="bar-separator" aria-hidden="true"></div>
+
+            <div class="event-bar-item">
+              <div class="item-icon-box">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="item-text">
+                <span class="item-label">TIME</span>
+                <strong class="item-value">7:30 PM Onwards</strong>
+              </div>
+            </div>
+
+            <div class="bar-separator" aria-hidden="true"></div>
+
+            <div class="event-bar-item">
+              <div class="item-icon-box">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="item-text">
+                <span class="item-label">VENUE</span>
+                <strong class="item-value">Ice &amp; Spice Restaurant</strong>
+              </div>
+            </div>
           </div>
 
+          <!-- Countdown Timer Section -->
           <section
             class="countdown"
             data-countdown
@@ -80,102 +203,241 @@
             aria-label="Countdown to Shreya's birthday celebration"
             aria-live="polite"
           >
-            <p class="countdown-kicker">Until the magic begins</p>
-            <div class="countdown-grid">
-              <div><strong data-days>00</strong><span>Days</span></div>
-              <div><strong data-hours>00</strong><span>Hours</span></div>
-              <div><strong data-minutes>00</strong><span>Minutes</span></div>
-              <div><strong data-seconds>00</strong><span>Seconds</span></div>
+            <div class="countdown-header">
+              <div class="countdown-title-wrap">
+                <svg class="timer-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <p class="countdown-kicker">COUNTDOWN TO CELEBRATION</p>
+              </div>
+              <button class="confetti-btn" id="confetti-trigger" aria-label="Pop Confetti">
+                🎉 <span>Pop Confetti!</span>
+              </button>
             </div>
-            <p class="countdown-message" data-countdown-message></p>
+
+            <div class="countdown-grid">
+              <div class="timer-box">
+                <strong data-days>00</strong>
+                <span>DAYS</span>
+              </div>
+              <div class="timer-box">
+                <strong data-hours>00</strong>
+                <span>HOURS</span>
+              </div>
+              <div class="timer-box">
+                <strong data-minutes>00</strong>
+                <span>MINUTES</span>
+              </div>
+              <div class="timer-box">
+                <strong data-seconds>00</strong>
+                <span>SECONDS</span>
+              </div>
+            </div>
+            <p class="countdown-message" data-countdown-message>🎉 It's Celebration Time! Let's Party! 🎂</p>
           </section>
 
-          <a class="primary-cta" href="#celebrate">
-            View the celebration
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
+          <!-- Primary Call to Action Buttons -->
+          <div class="hero-actions">
+            <a class="primary-cta" href="#celebrate">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>View Celebration Details</span>
+              <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+
+            <a class="secondary-cta" href="https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+              </svg>
+              <span>RSVP via WhatsApp</span>
+            </a>
+          </div>
         </div>
 
         <a class="scroll-cue" href="#celebrate" aria-label="Scroll to event details">
-          <span>Discover</span><i aria-hidden="true"></i>
+          <span>Explore Details</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"></path></svg>
         </a>
       </section>
 
+      <!-- Event Details & Party Features Section -->
       <section class="celebration" id="celebrate" aria-labelledby="details-title">
         <div class="celebration-glow" aria-hidden="true"></div>
+
         <div class="section-intro">
-          <p class="section-kicker">Save the moment</p>
-          <h2 id="details-title">A little <em>magic</em><br />is waiting</h2>
-          <p>
-            Cake, giggles, and a whole lot of joy — it would mean the world to
-            have you with us.
+          <div class="festive-pill">
+            <span class="party-icon">🎈</span>
+            <span>PARTY HIGHLIGHTS</span>
+            <span class="party-icon">🎉</span>
+          </div>
+          <h2 id="details-title">A Magical Evening<br /><em>Awaits You</em></h2>
+          <p class="section-lead">
+            Delicious food, joyful music, balloons, sweet treats, and cherished moments — 
+            we cannot wait to celebrate Shreya's milestone with our closest friends and family!
           </p>
         </div>
 
+        <!-- Big Highlight Cards -->
         <div class="details-grid">
+          <!-- When Card -->
           <article class="detail-card when-card">
-            <p class="card-number">01</p>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="16" rx="3"></rect>
-              <path d="M8 3v4M16 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"></path>
-            </svg>
+            <div class="card-badge">01</div>
+            <div class="card-icon-container">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <circle cx="8" cy="14" r="1.5" fill="currentColor"></circle>
+                <circle cx="12" cy="14" r="1.5" fill="currentColor"></circle>
+                <circle cx="16" cy="14" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <span class="card-tag">DATE &amp; TIME</span>
             <h3>When</h3>
-            <p>Wednesday, August 19</p>
-            <strong>7:30 PM onwards</strong>
+            <p class="card-main-info">Wednesday, August 19, 2026</p>
+            <p class="card-sub-info"><strong>7:30 PM Onwards</strong> · Dinner &amp; Cake Cutting</p>
+            <div class="card-footer">
+              <a href="assets/shreya-turns-three.ics" download class="card-action-btn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                <span>Add to Calendar (.ics)</span>
+              </a>
+            </div>
           </article>
 
+          <!-- Where Card -->
           <article class="detail-card where-card">
-            <p class="card-number">02</p>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
-              <circle cx="12" cy="10" r="2.5"></circle>
-            </svg>
+            <div class="card-badge">02</div>
+            <div class="card-icon-container">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <span class="card-tag">LOCATION &amp; VENUE</span>
             <h3>Where</h3>
-            <p>Ice &amp; Spice Restaurant</p>
-            <strong>Aliganj</strong>
-            <a href="https://maps.app.goo.gl/E6jdKA1MRbC3WBb38" target="_blank" rel="noreferrer">
-              Open in Maps
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-            </a>
+            <p class="card-main-info">Ice &amp; Spice Restaurant</p>
+            <p class="card-sub-info"><strong>Aliganj</strong>, Lucknow, Uttar Pradesh</p>
+            <div class="card-footer">
+              <a href="https://maps.app.goo.gl/E6jdKA1MRbC3WBb38" target="_blank" rel="noreferrer" class="card-action-btn primary-map-btn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
           </article>
         </div>
 
+        <!-- Party Itinerary / Highlight Elements -->
+        <div class="party-fun-banner">
+          <div class="fun-item">
+            <span class="fun-emoji">🎂</span>
+            <div class="fun-text">
+              <strong>Cake Cutting</strong>
+              <span>Sweet celebrations &amp; wishes</span>
+            </div>
+          </div>
+          <div class="fun-item">
+            <span class="fun-emoji">🍽️</span>
+            <div class="fun-text">
+              <strong>Delicious Dinner</strong>
+              <span>Appetizing feast &amp; drinks</span>
+            </div>
+          </div>
+          <div class="fun-item">
+            <span class="fun-emoji">🎵</span>
+            <div class="fun-text">
+              <strong>Music &amp; Fun</strong>
+              <span>Laughter, games &amp; photos</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Action Grid with Large Touch Targets -->
+        <h3 class="action-grid-title">Quick Actions &amp; RSVP</h3>
         <nav class="action-bar" aria-label="Invitation actions">
-          <a class="action action-primary" href="https://maps.app.goo.gl/E6jdKA1MRbC3WBb38" target="_blank" rel="noreferrer">
-            <span class="action-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
-            </span>
-            <span><small>Find the party</small>Navigate</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          <!-- Navigate Button -->
+          <a class="action action-maps" href="https://maps.app.goo.gl/E6jdKA1MRbC3WBb38" target="_blank" rel="noreferrer">
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <div class="action-content">
+              <small>FIND THE VENUE</small>
+              <strong>Open Google Maps</strong>
+            </div>
+            <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
-          <a class="action" href="https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89" target="_blank" rel="noreferrer">
-            <span class="action-icon action-icon-text">W</span>
-            <span><small>Let us know</small>WhatsApp</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+
+          <!-- WhatsApp RSVP Button -->
+          <a class="action action-wa" href="https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89" target="_blank" rel="noreferrer">
+            <div class="action-icon wa-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+              </svg>
+            </div>
+            <div class="action-content">
+              <small>LET US KNOW</small>
+              <strong>RSVP on WhatsApp</strong>
+            </div>
+            <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
-          <a class="action" href="tel:+919696687334">
-            <span class="action-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.5 10 8 7.8 10a15 15 0 0 0 6.2 6.2l2-2.2 4.5 2.8-.8 3.2c-.2.7-.9 1.2-1.7 1.2C9.7 21 3 14.3 3 6c0-.8.5-1.5 1.2-1.7l3-.8Z"></path></svg>
-            </span>
-            <span><small>Need help?</small>Call us</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+
+          <!-- Direct Call Button -->
+          <a class="action action-call" href="tel:+919696687334">
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <div class="action-content">
+              <small>HAVE QUESTIONS?</small>
+              <strong>Call Us Directly</strong>
+            </div>
+            <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
-          <a class="action" href="assets/shreya-turns-three.ics" download>
-            <span class="action-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"></rect><path d="M8 3v4M16 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"></path></svg>
-            </span>
-            <span><small>Don’t miss it</small>Add to calendar</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+
+          <!-- Add to Calendar Button -->
+          <a class="action action-cal" href="assets/shreya-turns-three.ics" download>
+            <div class="action-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+                <line x1="12" y1="14" x2="12" y2="18"></line>
+                <line x1="10" y1="16" x2="14" y2="16"></line>
+              </svg>
+            </div>
+            <div class="action-content">
+              <small>DON'T MISS IT</small>
+              <strong>Add to Calendar</strong>
+            </div>
+            <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
         </nav>
       </section>
 
+      <!-- Closing Footer Section -->
       <footer class="closing">
-        <div class="closing-stars" aria-hidden="true">✦ · ✧ · ✦</div>
-        <p>Three years of love, laughter &amp; a little bit of magic</p>
-        <h2>We can’t wait to celebrate with you.</h2>
-        <a href="tel:+919696687334">+91 96966 87334</a>
-        <span>Shreya turns three · 19.08.2026</span>
+        <div class="closing-glow" aria-hidden="true"></div>
+        <div class="closing-stars" aria-hidden="true">✨ · 🎈 · 🎂 · 🎈 · ✨</div>
+        <p class="closing-quote">Three years of unconditional love, giggles &amp; endless wonder</p>
+        <h2 class="closing-title">We Can’t Wait to Celebrate With You!</h2>
+        
+        <div class="closing-contact">
+          <span>For any assistance, call or WhatsApp:</span>
+          <a class="phone-link" href="tel:+919696687334">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            +91 96966 87334
+          </a>
+        </div>
+
+        <div class="closing-footer-note">
+          <p>Shreya Turns Three · Wednesday, 19 August 2026 · Ice &amp; Spice Restaurant, Aliganj</p>
+        </div>
       </footer>
     </main>
   </body>
