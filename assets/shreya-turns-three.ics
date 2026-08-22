@@ -7,7 +7,7 @@ BEGIN:VEVENT
 UID:shreya-turns-three-20260819@birthday-invite
 DTSTAMP:20260819T120000Z
 DTSTART;TZID=Asia/Kolkata:20260819T193000
-DTEND;TZID=Asia/Kolkata:20260819T223000
+DTEND;TZID=Asia/Kolkata:20260819T230000
 SUMMARY:Shreya Turns Three
 LOCATION:Ice & Spice Restaurant\, Aliganj
 DESCRIPTION:Join us to celebrate Shreya's third birthday.

@@ -40,7 +40,7 @@ test("calculates countdown values and clamps at zero", async () => {
 
   assert.deepEqual(
     getCountdownParts(target, target - oneDayTwoHoursThreeMinutesFourSeconds),
-    { days: 1, hours: 2, minutes: 3, seconds: 4, expired: false },
+    { days: 1, hours: 2, minutes: 3, seconds: 4, expired: false, concluded: false },
   );
   assert.deepEqual(getCountdownParts(target, target + 1), {
     days: 0,
@@ -48,5 +48,16 @@ test("calculates countdown values and clamps at zero", async () => {
     minutes: 0,
     seconds: 0,
     expired: true,
+    concluded: false,
+  });
+
+  const end = Date.parse("2026-08-19T23:00:00+05:30");
+  assert.deepEqual(getCountdownParts(target, end + 1000, end), {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    expired: true,
+    concluded: true,
   });
 });

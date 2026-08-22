@@ -6,7 +6,7 @@ Dependency-free static birthday invitation for `http://shreya.hostapp.in`.
 
 - `index.html` — invitation markup and social metadata
 - `styles.css` — responsive design and animations
-- `script.js` — client-side countdown to 19 August 2026, 7:30 PM IST
+- `script.js` — client-side countdown and celebration status (19 August 2026, 7:30 PM – 11:00 PM IST)
 - `assets/` — optimized photograph, favicon, and calendar invitation
 
 ## Deploy

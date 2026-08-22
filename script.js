@@ -7,8 +7,9 @@ const MINUTE = 60 * SECOND;
 const HOUR = 60 * MINUTE;
 const DAY = 24 * HOUR;
 
-export function getCountdownParts(targetMs, nowMs = Date.now()) {
+export function getCountdownParts(targetMs, nowMs = Date.now(), endMs) {
   const remaining = Math.max(0, targetMs - nowMs);
+  const isConcluded = endMs ? nowMs >= endMs : false;
 
   return {
     days: Math.floor(remaining / DAY),
@@ -16,6 +17,7 @@ export function getCountdownParts(targetMs, nowMs = Date.now()) {
     minutes: Math.floor((remaining % HOUR) / MINUTE),
     seconds: Math.floor((remaining % MINUTE) / SECOND),
     expired: targetMs - nowMs <= 0,
+    concluded: isConcluded,
   };
 }
 
@@ -28,32 +30,45 @@ export function initializeCountdown() {
   if (!countdown) return;
 
   const targetAttr = countdown.getAttribute("data-target") || "2026-08-19T19:30:00+05:30";
+  const endAttr = countdown.getAttribute("data-end") || "2026-08-19T23:00:00+05:30";
   const targetMs = Date.parse(targetAttr);
+  const endMs = Date.parse(endAttr);
 
   const daysEl = countdown.querySelector("[data-days]");
   const hoursEl = countdown.querySelector("[data-hours]");
   const minutesEl = countdown.querySelector("[data-minutes]");
   const secondsEl = countdown.querySelector("[data-seconds]");
   const messageEl = countdown.querySelector("[data-countdown-message]");
+  const kickerEl = countdown.querySelector(".countdown-kicker");
 
   const update = () => {
-    const parts = getCountdownParts(targetMs, Date.now());
+    const now = Date.now();
+    const parts = getCountdownParts(targetMs, now, endMs);
 
     if (daysEl) daysEl.textContent = formatPart(parts.days);
     if (hoursEl) hoursEl.textContent = formatPart(parts.hours);
     if (minutesEl) minutesEl.textContent = formatPart(parts.minutes);
     if (secondsEl) secondsEl.textContent = formatPart(parts.seconds);
 
-    if (parts.expired) {
+    if (parts.concluded || now >= endMs) {
+      countdown.classList.add("is-finished", "is-concluded");
+      if (kickerEl) kickerEl.textContent = "CELEBRATION CONCLUDED";
+      if (messageEl) {
+        messageEl.textContent = "✨ Thank You for Celebrating with Shreya! 💖";
+      }
+    } else if (parts.expired) {
       countdown.classList.add("is-finished");
+      countdown.classList.remove("is-concluded");
+      if (kickerEl) kickerEl.textContent = "HAPPENING NOW";
       if (messageEl) {
         messageEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
       }
     } else {
-      countdown.classList.remove("is-finished");
+      countdown.classList.remove("is-finished", "is-concluded");
+      if (kickerEl) kickerEl.textContent = "COUNTDOWN TO CELEBRATION";
     }
 
-    return parts.expired;
+    return parts.concluded || (parts.expired && now >= endMs);
   };
 
   // Run immediately on call

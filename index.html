@@ -6,7 +6,7 @@
     <title>Shreya Turns Three | Birthday Invitation</title>
     <meta
       name="description"
-      content="You are cordially invited to celebrate Shreya's 3rd Birthday! Join us on Wednesday, August 19 at 7:30 PM at Ice & Spice Restaurant, Aliganj for an evening of cake, music & joy."
+      content="You are cordially invited to celebrate Shreya's 3rd Birthday! Join us on Wednesday, August 19 from 7:30 PM to 11:00 PM at Ice & Spice Restaurant, Aliganj for an evening of cake, music & joy."
     />
     <link rel="canonical" href="http://shreya.hostapp.in/" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -18,7 +18,7 @@
     <meta property="og:title" content="🎉 Shreya is Turning 3! You're Invited to Celebrate 🎂" />
     <meta
       property="og:description"
-      content="Join us for Shreya's 3rd birthday party on Wednesday, Aug 19, 7:30 PM at Ice & Spice Restaurant, Aliganj. Tap to see the details & countdown!"
+      content="Join us for Shreya's 3rd birthday party on Wednesday, Aug 19, 7:30 PM – 11:00 PM at Ice & Spice Restaurant, Aliganj. Tap to see the details & countdown!"
     />
     <meta property="og:url" content="http://shreya.hostapp.in/" />
     <meta property="og:image" content="http://shreya.hostapp.in/assets/og-image.jpg" />
@@ -33,7 +33,7 @@
     <meta name="twitter:title" content="🎉 Shreya Turns 3 | Birthday Celebration Invitation" />
     <meta
       name="twitter:description"
-      content="Join us for Shreya's 3rd birthday party on Wednesday, Aug 19, 7:30 PM at Ice & Spice Restaurant, Aliganj. Tap to see the invitation!"
+      content="Join us for Shreya's 3rd birthday party on Wednesday, Aug 19, 7:30 PM – 11:00 PM at Ice & Spice Restaurant, Aliganj. Tap to see the invitation!"
     />
     <meta name="twitter:image" content="http://shreya.hostapp.in/assets/og-image.jpg" />
     <meta name="theme-color" content="#061612" />
@@ -155,7 +155,7 @@
               </div>
               <div class="item-text">
                 <span class="item-label">TIME</span>
-                <strong class="item-value">7:30 PM Onwards</strong>
+                <strong class="item-value">7:30 PM – 11:00 PM</strong>
               </div>
             </div>
 
@@ -180,6 +180,7 @@
             class="countdown"
             data-countdown
             data-target="2026-08-19T19:30:00+05:30"
+            data-end="2026-08-19T23:00:00+05:30"
             aria-label="Countdown to Shreya's birthday celebration"
             aria-live="polite"
           >
@@ -278,7 +279,7 @@
             <span class="card-tag">DATE &amp; TIME</span>
             <h3>When</h3>
             <p class="card-main-info">Wednesday, August 19, 2026</p>
-            <p class="card-sub-info"><strong>7:30 PM Onwards</strong> · Dinner &amp; Cake Cutting</p>
+            <p class="card-sub-info"><strong>7:30 PM – 11:00 PM</strong> · Dinner &amp; Cake Cutting</p>
             <div class="card-footer">
               <a href="assets/shreya-turns-three.ics" download class="card-action-btn">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
@@ -418,7 +419,7 @@
         </div>
 
         <div class="closing-footer-note">
-          <p>Shreya Turns Three · Wednesday, 19 August 2026 · Ice &amp; Spice Restaurant, Aliganj</p>
+          <p>Shreya Turns Three · Wednesday, 19 August 2026 · 7:30 PM – 11:00 PM · Ice &amp; Spice Restaurant, Aliganj</p>
         </div>
       </footer>
     </main>
@@ -430,17 +431,21 @@
           var countdown = document.querySelector("[data-countdown]");
           if (!countdown) return;
           var targetAttr = countdown.getAttribute("data-target") || "2026-08-19T19:30:00+05:30";
+          var endAttr = countdown.getAttribute("data-end") || "2026-08-19T23:00:00+05:30";
           var targetMs = Date.parse(targetAttr);
+          var endMs = Date.parse(endAttr);
           var daysEl = countdown.querySelector("[data-days]");
           var hoursEl = countdown.querySelector("[data-hours]");
           var minutesEl = countdown.querySelector("[data-minutes]");
           var secondsEl = countdown.querySelector("[data-seconds]");
           var msgEl = countdown.querySelector("[data-countdown-message]");
+          var kickerEl = countdown.querySelector(".countdown-kicker");
 
           function pad(n) { return String(n).padStart(2, "0"); }
 
           function tick() {
-            var diff = Math.max(0, targetMs - Date.now());
+            var now = Date.now();
+            var diff = Math.max(0, targetMs - now);
             var d = Math.floor(diff / 86400000);
             var h = Math.floor((diff % 86400000) / 3600000);
             var m = Math.floor((diff % 3600000) / 60000);
@@ -451,9 +456,18 @@
             if (minutesEl) minutesEl.textContent = pad(m);
             if (secondsEl) secondsEl.textContent = pad(s);
 
-            if (diff <= 0) {
+            if (now >= endMs) {
+              countdown.classList.add("is-finished", "is-concluded");
+              if (kickerEl) kickerEl.textContent = "CELEBRATION CONCLUDED";
+              if (msgEl) msgEl.textContent = "✨ Thank You for Celebrating with Shreya! 💖";
+            } else if (diff <= 0) {
               countdown.classList.add("is-finished");
+              countdown.classList.remove("is-concluded");
+              if (kickerEl) kickerEl.textContent = "HAPPENING NOW";
               if (msgEl) msgEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
+            } else {
+              countdown.classList.remove("is-finished", "is-concluded");
+              if (kickerEl) kickerEl.textContent = "COUNTDOWN TO CELEBRATION";
             }
           }
           tick();
