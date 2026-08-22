@@ -25,6 +25,190 @@ function formatPart(value) {
   return String(value).padStart(2, "0");
 }
 
+export function updateEventTexts(state) {
+  const isConcluded = state === "concluded";
+  const isHappening = state === "happening";
+
+  // Body status class
+  if (document.body) {
+    document.body.classList.toggle("is-event-concluded", isConcluded);
+    document.body.classList.toggle("is-event-happening", isHappening);
+    document.body.classList.toggle("is-event-upcoming", !isConcluded && !isHappening);
+  }
+
+  // Hero festive badge
+  const heroBadge = document.querySelector("[data-hero-badge]");
+  if (heroBadge) {
+    if (isConcluded) {
+      heroBadge.innerHTML = '<span class="sparkle-icon">✨</span><span>CELEBRATION CONCLUDED · THANK YOU!</span><span class="sparkle-icon">✨</span>';
+    } else if (isHappening) {
+      heroBadge.innerHTML = '<span class="sparkle-icon">🎉</span><span>CELEBRATION IN PROGRESS</span><span class="sparkle-icon">🎉</span>';
+    } else {
+      heroBadge.innerHTML = '<span class="sparkle-icon">✨</span><span>YOU ARE CORDIALLY INVITED</span><span class="sparkle-icon">✨</span>';
+    }
+  }
+
+  // Hero invitation line
+  const heroLine = document.querySelector("[data-hero-line]");
+  if (heroLine) {
+    if (isConcluded) {
+      heroLine.innerHTML = "Three years of joyful smiles, tiny footsteps, and endless magic.<br />Heartfelt thanks to everyone who celebrated Shreya's milestone and showered her with love and blessings!";
+    } else if (isHappening) {
+      heroLine.innerHTML = "Three years of joyful smiles, tiny footsteps, and endless magic.<br />The celebration is happening right now! Join us for cake, laughter, and joyous moments!";
+    } else {
+      heroLine.innerHTML = "Three years of joyful smiles, tiny footsteps, and endless magic.<br />Join us for an unforgettable evening filled with cake, laughter, and celebration!";
+    }
+  }
+
+  // Hero primary CTA text
+  const primaryCtaText = document.querySelector("[data-primary-cta-text]");
+  if (primaryCtaText) {
+    if (isConcluded) {
+      primaryCtaText.textContent = "View Celebration Highlights";
+    } else if (isHappening) {
+      primaryCtaText.textContent = "View Party Schedule";
+    } else {
+      primaryCtaText.textContent = "View Celebration Details";
+    }
+  }
+
+  // Hero secondary CTA
+  const secondaryCta = document.querySelector("[data-secondary-cta]");
+  const secondaryCtaText = document.querySelector("[data-secondary-cta-text]");
+  if (secondaryCta) {
+    if (isConcluded) {
+      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20lots%20of%20love%20and%20blessings%20to%20Shreya%20on%20turning%203%21%20%F0%9F%8E%82%E2%9C%A8";
+      if (secondaryCtaText) secondaryCtaText.textContent = "Share Wishes on WhatsApp";
+    } else if (isHappening) {
+      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20joining%20the%20celebration%20right%20now%21%20%F0%9F%8E%89";
+      if (secondaryCtaText) secondaryCtaText.textContent = "Connect on WhatsApp";
+    } else {
+      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      if (secondaryCtaText) secondaryCtaText.textContent = "RSVP via WhatsApp";
+    }
+  }
+
+  // Section pill & title
+  const highlightsPillText = document.querySelector("[data-highlights-pill-text]");
+  if (highlightsPillText) {
+    highlightsPillText.textContent = isConcluded ? "CHERISHED MEMORIES" : isHappening ? "LIVE HIGHLIGHTS" : "PARTY HIGHLIGHTS";
+  }
+
+  const highlightsTitle = document.querySelector("[data-highlights-title]");
+  if (highlightsTitle) {
+    if (isConcluded) {
+      highlightsTitle.innerHTML = "A Magical Evening<br /><em>We Celebrated Together</em>";
+    } else if (isHappening) {
+      highlightsTitle.innerHTML = "A Magical Evening<br /><em>In Full Swing</em>";
+    } else {
+      highlightsTitle.innerHTML = "A Magical Evening<br /><em>Awaits You</em>";
+    }
+  }
+
+  const highlightsLead = document.querySelector("[data-highlights-lead]");
+  if (highlightsLead) {
+    if (isConcluded) {
+      highlightsLead.textContent = "Delicious food, joyful music, balloons, sweet treats, and treasured moments. Thank you for showering little Shreya with endless love, blessings, and warm smiles!";
+    } else if (isHappening) {
+      highlightsLead.textContent = "Delicious feast, heartwarming music, cake cutting, and cheerful memories happening right now with our beloved friends and family!";
+    } else {
+      highlightsLead.textContent = "Delicious food, joyful music, balloons, sweet treats, and cherished moments. We cannot wait to celebrate Shreya's milestone with our closest friends and family!";
+    }
+  }
+
+  // When card sub info
+  const whenSubInfo = document.querySelector("[data-when-sub-info]");
+  if (whenSubInfo) {
+    if (isConcluded) {
+      whenSubInfo.innerHTML = "<strong>Celebrated on Aug 19, 2026</strong> · 7:30 PM – 11:00 PM";
+    } else if (isHappening) {
+      whenSubInfo.innerHTML = "<strong>Happening Tonight</strong> · 7:30 PM – 11:00 PM";
+    } else {
+      whenSubInfo.innerHTML = "<strong>7:30 PM – 11:00 PM</strong> · Dinner &amp; Cake Cutting";
+    }
+  }
+
+  // Quick actions section title
+  const actionTitle = document.querySelector("[data-action-grid-title]");
+  if (actionTitle) {
+    actionTitle.textContent = isConcluded ? "Memories & Stay Connected" : "Quick Actions & RSVP";
+  }
+
+  // Action WhatsApp
+  const actionWaSmall = document.querySelector("[data-action-wa-small]");
+  const actionWaStrong = document.querySelector("[data-action-wa-strong]");
+  const actionWaLink = document.querySelector("[data-action-wa-link]");
+  if (actionWaLink) {
+    if (isConcluded) {
+      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20photos%20and%20wishes%20for%20Shreya%27s%20birthday%21%20%F0%9F%8E%89%F0%9F%92%96";
+      if (actionWaSmall) actionWaSmall.textContent = "SHARE THE JOY";
+      if (actionWaStrong) actionWaStrong.textContent = "Send Wishes & Photos";
+    } else if (isHappening) {
+      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20joining%20the%20celebration%20right%20now%21%20%F0%9F%8E%89";
+      if (actionWaSmall) actionWaSmall.textContent = "JOIN THE FUN";
+      if (actionWaStrong) actionWaStrong.textContent = "Connect on WhatsApp";
+    } else {
+      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      if (actionWaSmall) actionWaSmall.textContent = "LET US KNOW";
+      if (actionWaStrong) actionWaStrong.textContent = "RSVP on WhatsApp";
+    }
+  }
+
+  // Action Calendar
+  const actionCalSmall = document.querySelector("[data-action-cal-small]");
+  const actionCalStrong = document.querySelector("[data-action-cal-strong]");
+  if (actionCalSmall && actionCalStrong) {
+    if (isConcluded) {
+      actionCalSmall.textContent = "EVENT COMPLETED";
+      actionCalStrong.textContent = "Celebrated Aug 19, 2026";
+    } else if (isHappening) {
+      actionCalSmall.textContent = "HAPPENING TODAY";
+      actionCalStrong.textContent = "7:30 PM – 11:00 PM";
+    } else {
+      actionCalSmall.textContent = "DON'T MISS IT";
+      actionCalStrong.textContent = "Add to Calendar";
+    }
+  }
+
+  // Closing footer
+  const closingTitle = document.querySelector("[data-closing-title]");
+  if (closingTitle) {
+    if (isConcluded) {
+      closingTitle.textContent = "Thank You for Making Shreya's Birthday So Special! 💖";
+    } else if (isHappening) {
+      closingTitle.textContent = "Let's Make Tonight Truly Unforgettable! 🎉";
+    } else {
+      closingTitle.textContent = "We Can’t Wait to Celebrate With You!";
+    }
+  }
+
+  const closingContactText = document.querySelector("[data-closing-contact-text]");
+  if (closingContactText) {
+    if (isConcluded) {
+      closingContactText.textContent = "Share your photos, videos, or heartfelt wishes with us:";
+    } else if (isHappening) {
+      closingContactText.textContent = "For directions or any assistance tonight, reach out to us:";
+    } else {
+      closingContactText.textContent = "For any assistance, please reach out to us:";
+    }
+  }
+
+  const closingWaLink = document.querySelector("[data-closing-wa-link]");
+  const closingWaText = document.querySelector("[data-closing-wa-text]");
+  if (closingWaLink) {
+    if (isConcluded) {
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Shreya%21%20%F0%9F%8E%82%E2%9C%A8";
+      if (closingWaText) closingWaText.textContent = "Share Memories & Chat on WhatsApp";
+    } else if (isHappening) {
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
+    } else {
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
+    }
+  }
+}
+
 export function initializeCountdown() {
   const countdown = document.querySelector("[data-countdown]");
   if (!countdown) return;
@@ -41,6 +225,8 @@ export function initializeCountdown() {
   const messageEl = countdown.querySelector("[data-countdown-message]");
   const kickerEl = countdown.querySelector(".countdown-kicker");
 
+  let lastState = null;
+
   const update = () => {
     const now = Date.now();
     const parts = getCountdownParts(targetMs, now, endMs);
@@ -50,13 +236,17 @@ export function initializeCountdown() {
     if (minutesEl) minutesEl.textContent = formatPart(parts.minutes);
     if (secondsEl) secondsEl.textContent = formatPart(parts.seconds);
 
+    let currentState = "upcoming";
+
     if (parts.concluded || now >= endMs) {
+      currentState = "concluded";
       countdown.classList.add("is-finished", "is-concluded");
       if (kickerEl) kickerEl.textContent = "CELEBRATION CONCLUDED";
       if (messageEl) {
         messageEl.textContent = "✨ Thank You for Celebrating with Shreya! 💖";
       }
     } else if (parts.expired) {
+      currentState = "happening";
       countdown.classList.add("is-finished");
       countdown.classList.remove("is-concluded");
       if (kickerEl) kickerEl.textContent = "HAPPENING NOW";
@@ -64,8 +254,14 @@ export function initializeCountdown() {
         messageEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
       }
     } else {
+      currentState = "upcoming";
       countdown.classList.remove("is-finished", "is-concluded");
       if (kickerEl) kickerEl.textContent = "COUNTDOWN TO CELEBRATION";
+    }
+
+    if (currentState !== lastState) {
+      lastState = currentState;
+      updateEventTexts(currentState);
     }
 
     return parts.concluded || (parts.expired && now >= endMs);

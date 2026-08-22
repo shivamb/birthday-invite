@@ -658,6 +658,17 @@ main {
   display: block;
 }
 
+.countdown.is-concluded .countdown-message {
+  background: rgba(14, 25, 20, 0.75);
+  border-color: rgba(245, 207, 109, 0.45);
+  box-shadow: 0 8px 32px rgba(245, 207, 109, 0.15);
+}
+
+body.is-event-concluded .festive-badge {
+  background: rgba(245, 207, 109, 0.12);
+  border-color: rgba(245, 207, 109, 0.35);
+}
+
 /* ==========================================================================
    Hero Action Buttons
    ========================================================================== */

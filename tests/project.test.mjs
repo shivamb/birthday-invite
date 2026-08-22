@@ -61,3 +61,10 @@ test("calculates countdown values and clamps at zero", async () => {
     concluded: true,
   });
 });
+
+test("exports updateEventTexts for dynamic lifecycle states", async () => {
+  const { updateEventTexts } = await import(
+    new URL("script.js", projectRoot)
+  );
+  assert.equal(typeof updateEventTexts, "function");
+});
