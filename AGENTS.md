@@ -1,4 +1,4 @@
-# AGENTS.md — Shreya Turns Three Birthday Invitation Project
+# AGENTS.md — Ayansh Turns Five Birthday Invitation Project
 
 This document provides context, architectural guidelines, technical conventions, and verification workflows for AI agents operating on this repository.
 
@@ -6,7 +6,7 @@ This document provides context, architectural guidelines, technical conventions,
 
 ## 🎯 Project Overview
 
-This repository contains the codebase for **Shreya Turns Three**, a fast, lightweight, dependency-free static birthday celebration web application hosted at [http://shreya.hostapp.in](http://shreya.hostapp.in).
+This repository branch contains the codebase for **Ayansh Turns Five**, a fast, lightweight, dependency-free static birthday celebration web application hosted at [http://ayansh.hostapp.in](http://ayansh.hostapp.in).
 
 The application delivers an interactive, mobile-responsive invitation experience with real-time countdown, celebration lifecycle state transitions, physics-based confetti particle simulation, WhatsApp RSVP integration, calendar file download, and map navigation.
 
@@ -25,9 +25,9 @@ The application delivers an interactive, mobile-responsive invitation experience
 
 3. **Event Lifecycle Engine**:
    The application transitions across 3 lifecycle states based on current time ($T_{\text{now}}$):
-   - **Upcoming (`now < 2026-08-19T19:30:00+05:30`)**: Active countdown, RSVP CTAs, party details, calendar download.
+   - **Upcoming (`now < 2026-10-19T19:30:00+05:30`)**: Active countdown, RSVP CTAs, party details, calendar download.
    - **Happening Now (`19:30 <= now < 23:00`)**: Party in progress banner, schedule highlights, live WhatsApp coordination.
-   - **Concluded (`now >= 2026-08-19T23:00:00+05:30`)**: Heartfelt thank-you banners, photo/video sharing prompts, memory highlights.
+   - **Concluded (`now >= 2026-10-19T23:00:00+05:30`)**: Heartfelt thank-you banners, photo/video sharing prompts, memory highlights.
 
 ---
 
@@ -36,7 +36,7 @@ The application delivers an interactive, mobile-responsive invitation experience
 ```
 .
 ├── AGENTS.md                     # AI agent guidelines & architectural documentation
-├── CNAME                         # Custom domain mapping (shreya.hostapp.in)
+├── CNAME                         # Custom domain mapping (ayansh.hostapp.in)
 ├── README.md                     # Project overview and specifications
 ├── package.json                  # Test runner scripts (Node.js test runner)
 ├── index.html                    # Semantic HTML markup, metadata, SEO & inline fallback
@@ -45,8 +45,8 @@ The application delivers an interactive, mobile-responsive invitation experience
 ├── assets/
 │   ├── favicon.svg               # Vector browser favicon
 │   ├── og-image.jpg              # High-resolution social media preview image (Open Graph / Twitter)
-│   ├── shreya-birthday.webp      # Optimized WebP hero portrait
-│   └── shreya-turns-three.ics    # Standard RFC-5545 iCalendar event invite
+│   ├── ayansh-birthday.webp      # Optimized WebP hero portrait (5th birthday)
+│   └── ayansh-turns-five.ics     # Standard RFC-5545 iCalendar event invite
 └── tests/
     └── project.test.mjs          # Automated test suite (Node.js built-in runner)
 ```
@@ -59,15 +59,15 @@ When making updates, ensure alignment with the official event parameters:
 
 | Parameter | Value |
 | :--- | :--- |
-| **Celebrant** | Shreya (3rd Birthday) |
-| **Start Timestamp** | `2026-08-19T19:30:00+05:30` (Wednesday, Aug 19, 2026, 7:30 PM IST) |
-| **End Timestamp** | `2026-08-19T23:00:00+05:30` (Wednesday, Aug 19, 2026, 11:00 PM IST) |
+| **Celebrant** | Ayansh (5th Birthday) |
+| **Start Timestamp** | `2026-10-19T19:30:00+05:30` (Monday, Oct 19, 2026, 7:30 PM IST) |
+| **End Timestamp** | `2026-10-19T23:00:00+05:30` (Monday, Oct 19, 2026, 11:00 PM IST) |
 | **Timezone** | Indian Standard Time (IST / `Asia/Kolkata` / `UTC+05:30`) |
 | **Venue** | Ice & Spice Restaurant, Aliganj, Lucknow, Uttar Pradesh |
 | **Google Maps Link** | `https://maps.app.goo.gl/E6jdKA1MRbC3WBb38` |
 | **Contact / Phone** | `+91 96966 87334` |
 | **WhatsApp Direct** | `https://wa.me/919696687334` |
-| **Domain** | `http://shreya.hostapp.in` |
+| **Domain** | `http://ayansh.hostapp.in` |
 
 ---
 
@@ -75,11 +75,11 @@ When making updates, ensure alignment with the official event parameters:
 
 - **Typography**: Google Fonts (`Playfair Display` for serif headings, `Great Vibes` for script accents, `Plus Jakarta Sans` for body copy).
 - **Color Palette**:
-  - Primary Background: Deep night emerald gradient (`#061a14` to `#0d281e`).
-  - Accent / Gold: Warm champagne and radiant gold tones (`#f3c969`, `#ffd700`, `#e5b73b`).
+  - Primary Background: Midnight Sapphire & Royal Navy gradient (`#030a16` to `#061325`).
+  - Accent / Gold: Warm champagne, radiant gold, and vibrant sapphire tones (`#f5cf6d`, `#ffd700`, `#3b82f6`).
   - Glass / Cards: Translucent dark overlays with subtle backdrop blurs and gold borders.
 - **Animations**:
-  - CSS keyframes for floating balloons, twinkle sparkles, and ambient glow pulses.
+  - CSS keyframes for floating balloons (gold, sapphire, champagne), twinkle sparkles, and ambient glow pulses.
   - HTML5 Canvas confetti with physics (gravity, rotation, velocity decay, and color randomization).
 - **Responsive Design**: Ensure full touch responsiveness across mobile (320px+), tablet, and desktop viewports.
 

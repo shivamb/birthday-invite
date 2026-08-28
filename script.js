@@ -1,5 +1,5 @@
 // ==========================================================================
-// Shreya Turns Three | Birthday Celebration Countdown & Interactive Confetti
+// Ayansh Turns Five | Royal Celestial Galaxy & Stardust Gold Engine
 // ==========================================================================
 
 const SECOND = 1_000;
@@ -52,11 +52,11 @@ export function updateEventTexts(state) {
   const heroLine = document.querySelector("[data-hero-line]");
   if (heroLine) {
     if (isConcluded) {
-      heroLine.innerHTML = "Three years of joyful smiles, tiny footsteps, and endless magic.<br />Heartfelt thanks to everyone who celebrated Shreya's milestone and showered her with love and blessings!";
+      heroLine.innerHTML = "Five years of high-fives, adventurous laughs, and endless wonder.<br />Heartfelt thanks to everyone who celebrated Ayansh's milestone and showered him with love and blessings!";
     } else if (isHappening) {
-      heroLine.innerHTML = "Three years of joyful smiles, tiny footsteps, and endless magic.<br />The celebration is happening right now! Join us for cake, laughter, and joyous moments!";
+      heroLine.innerHTML = "Five years of high-fives, adventurous laughs, and endless wonder.<br />The celebration is happening right now! Join us for cake, games, and joyous moments!";
     } else {
-      heroLine.innerHTML = "Three years of joyful smiles, tiny footsteps, and endless magic.<br />Join us for an unforgettable evening filled with cake, laughter, and celebration!";
+      heroLine.innerHTML = "Five years of high-fives, adventurous laughs, and endless wonder.<br />Join our constellation of loved ones for an unforgettable evening under the stars!";
     }
   }
 
@@ -77,13 +77,13 @@ export function updateEventTexts(state) {
   const secondaryCtaText = document.querySelector("[data-secondary-cta-text]");
   if (secondaryCta) {
     if (isConcluded) {
-      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20lots%20of%20love%20and%20blessings%20to%20Shreya%20on%20turning%203%21%20%F0%9F%8E%82%E2%9C%A8";
+      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20lots%20of%20love%20and%20blessings%20to%20Ayansh%20on%20turning%205%21%20%F0%9F%8E%82%E2%9C%A8";
       if (secondaryCtaText) secondaryCtaText.textContent = "Share Wishes on WhatsApp";
     } else if (isHappening) {
       secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20joining%20the%20celebration%20right%20now%21%20%F0%9F%8E%89";
       if (secondaryCtaText) secondaryCtaText.textContent = "Connect on WhatsApp";
     } else {
-      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      secondaryCta.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
       if (secondaryCtaText) secondaryCtaText.textContent = "RSVP via WhatsApp";
     }
   }
@@ -91,7 +91,7 @@ export function updateEventTexts(state) {
   // Section pill & title
   const highlightsPillText = document.querySelector("[data-highlights-pill-text]");
   if (highlightsPillText) {
-    highlightsPillText.textContent = isConcluded ? "CHERISHED MEMORIES" : isHappening ? "LIVE HIGHLIGHTS" : "PARTY HIGHLIGHTS";
+    highlightsPillText.textContent = isConcluded ? "CHERISHED MEMORIES" : isHappening ? "LIVE HIGHLIGHTS" : "CELESTIAL HIGHLIGHTS";
   }
 
   const highlightsTitle = document.querySelector("[data-highlights-title]");
@@ -101,18 +101,18 @@ export function updateEventTexts(state) {
     } else if (isHappening) {
       highlightsTitle.innerHTML = "A Magical Evening<br /><em>In Full Swing</em>";
     } else {
-      highlightsTitle.innerHTML = "A Magical Evening<br /><em>Awaits You</em>";
+      highlightsTitle.innerHTML = "A Magical Evening<br /><em>Among The Stars</em>";
     }
   }
 
   const highlightsLead = document.querySelector("[data-highlights-lead]");
   if (highlightsLead) {
     if (isConcluded) {
-      highlightsLead.textContent = "Delicious food, joyful music, balloons, sweet treats, and treasured moments. Thank you for showering little Shreya with endless love, blessings, and warm smiles!";
+      highlightsLead.textContent = "Stardust treats, delicious feast, music & galactic games, balloons, and treasured moments. Thank you for showering Ayansh with endless love, blessings, and warm smiles!";
     } else if (isHappening) {
       highlightsLead.textContent = "Delicious feast, heartwarming music, cake cutting, and cheerful memories happening right now with our beloved friends and family!";
     } else {
-      highlightsLead.textContent = "Delicious food, joyful music, balloons, sweet treats, and cherished moments. We cannot wait to celebrate Shreya's milestone with our closest friends and family!";
+      highlightsLead.textContent = "Stardust treats, delicious feast, music & galactic games, balloons, and treasured moments. We cannot wait to celebrate Ayansh's milestone with our closest friends and family!";
     }
   }
 
@@ -120,7 +120,7 @@ export function updateEventTexts(state) {
   const whenSubInfo = document.querySelector("[data-when-sub-info]");
   if (whenSubInfo) {
     if (isConcluded) {
-      whenSubInfo.innerHTML = "<strong>Celebrated on Aug 19, 2026</strong> · 7:30 PM – 11:00 PM";
+      whenSubInfo.innerHTML = "<strong>Celebrated on Oct 19, 2026</strong> · 7:30 PM – 11:00 PM";
     } else if (isHappening) {
       whenSubInfo.innerHTML = "<strong>Happening Tonight</strong> · 7:30 PM – 11:00 PM";
     } else {
@@ -140,7 +140,7 @@ export function updateEventTexts(state) {
   const actionWaLink = document.querySelector("[data-action-wa-link]");
   if (actionWaLink) {
     if (isConcluded) {
-      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20photos%20and%20wishes%20for%20Shreya%27s%20birthday%21%20%F0%9F%8E%89%F0%9F%92%96";
+      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20photos%20and%20wishes%20for%20Ayansh%27s%20birthday%21%20%F0%9F%8E%89%F0%9F%92%96";
       if (actionWaSmall) actionWaSmall.textContent = "SHARE THE JOY";
       if (actionWaStrong) actionWaStrong.textContent = "Send Wishes & Photos";
     } else if (isHappening) {
@@ -148,7 +148,7 @@ export function updateEventTexts(state) {
       if (actionWaSmall) actionWaSmall.textContent = "JOIN THE FUN";
       if (actionWaStrong) actionWaStrong.textContent = "Connect on WhatsApp";
     } else {
-      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      actionWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
       if (actionWaSmall) actionWaSmall.textContent = "LET US KNOW";
       if (actionWaStrong) actionWaStrong.textContent = "RSVP on WhatsApp";
     }
@@ -160,7 +160,7 @@ export function updateEventTexts(state) {
   if (actionCalSmall && actionCalStrong) {
     if (isConcluded) {
       actionCalSmall.textContent = "EVENT COMPLETED";
-      actionCalStrong.textContent = "Celebrated Aug 19, 2026";
+      actionCalStrong.textContent = "Celebrated Oct 19, 2026";
     } else if (isHappening) {
       actionCalSmall.textContent = "HAPPENING TODAY";
       actionCalStrong.textContent = "7:30 PM – 11:00 PM";
@@ -174,7 +174,7 @@ export function updateEventTexts(state) {
   const closingTitle = document.querySelector("[data-closing-title]");
   if (closingTitle) {
     if (isConcluded) {
-      closingTitle.textContent = "Thank You for Making Shreya's Birthday So Special! 💖";
+      closingTitle.textContent = "Thank You for Making Ayansh's Birthday So Special! 💖";
     } else if (isHappening) {
       closingTitle.textContent = "Let's Make Tonight Truly Unforgettable! 🎉";
     } else {
@@ -197,13 +197,13 @@ export function updateEventTexts(state) {
   const closingWaText = document.querySelector("[data-closing-wa-text]");
   if (closingWaLink) {
     if (isConcluded) {
-      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Shreya%21%20%F0%9F%8E%82%E2%9C%A8";
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Ayansh%21%20%F0%9F%8E%82%E2%9C%A8";
       if (closingWaText) closingWaText.textContent = "Share Memories & Chat on WhatsApp";
     } else if (isHappening) {
-      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
       if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
     } else {
-      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Shreya%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
       if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
     }
   }
@@ -213,8 +213,8 @@ export function initializeCountdown() {
   const countdown = document.querySelector("[data-countdown]");
   if (!countdown) return;
 
-  const targetAttr = countdown.getAttribute("data-target") || "2026-08-19T19:30:00+05:30";
-  const endAttr = countdown.getAttribute("data-end") || "2026-08-19T23:00:00+05:30";
+  const targetAttr = countdown.getAttribute("data-target") || "2026-10-19T19:30:00+05:30";
+  const endAttr = countdown.getAttribute("data-end") || "2026-10-19T23:00:00+05:30";
   const targetMs = Date.parse(targetAttr);
   const endMs = Date.parse(endAttr);
 
@@ -243,7 +243,7 @@ export function initializeCountdown() {
       countdown.classList.add("is-finished", "is-concluded");
       if (kickerEl) kickerEl.textContent = "CELEBRATION CONCLUDED";
       if (messageEl) {
-        messageEl.textContent = "✨ Thank You for Celebrating with Shreya! 💖";
+        messageEl.textContent = "✨ Thank You for Celebrating with Ayansh! 💖";
       }
     } else if (parts.expired) {
       currentState = "happening";
@@ -278,6 +278,30 @@ export function initializeCountdown() {
   }, SECOND);
 }
 
+function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+  let rot = (Math.PI / 2) * 3;
+  let x = cx;
+  let y = cy;
+  const step = Math.PI / spikes;
+
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - outerRadius);
+  for (let i = 0; i < spikes; i++) {
+    x = cx + Math.cos(rot) * outerRadius;
+    y = cy + Math.sin(rot) * outerRadius;
+    ctx.lineTo(x, y);
+    rot += step;
+
+    x = cx + Math.cos(rot) * innerRadius;
+    y = cy + Math.sin(rot) * innerRadius;
+    ctx.lineTo(x, y);
+    rot += step;
+  }
+  ctx.lineTo(cx, cy - outerRadius);
+  ctx.closePath();
+  ctx.fill();
+}
+
 export function initializeConfetti() {
   const canvas = document.getElementById("confetti-canvas");
   if (!canvas) return;
@@ -296,14 +320,14 @@ export function initializeConfetti() {
   );
 
   const colors = [
-    "#f5cf6d", // Gold
-    "#ff758c", // Coral Rose
-    "#ffeaa7", // Champagne
-    "#00cec9", // Aqua
-    "#fd79a8", // Pink
-    "#a29bfe", // Purple
-    "#55efc4", // Mint
-    "#ffffff", // White
+    "#ffd56b", // Stardust Gold
+    "#38bdf8", // Aurora Cyan
+    "#8b5cf6", // Nebula Purple
+    "#ffeaa7", // Champagne Light
+    "#f59e0b", // Solar Flare Amber
+    "#ff758c", // Cosmic Rose
+    "#60a5fa", // Astral Sky Blue
+    "#ffffff", // Supernova White
   ];
 
   let particles = [];
@@ -314,8 +338,16 @@ export function initializeConfetti() {
       this.x = x;
       this.y = y;
       this.color = colors[Math.floor(Math.random() * colors.length)];
-      this.size = Math.random() * 8 + 6;
-      this.shape = Math.random() > 0.4 ? "rect" : "circle";
+      this.size = Math.random() * 9 + 5;
+      
+      const rand = Math.random();
+      if (rand > 0.6) {
+        this.shape = "star";
+      } else if (rand > 0.3) {
+        this.shape = "rect";
+      } else {
+        this.shape = "circle";
+      }
 
       const angle = isBurst
         ? Math.random() * Math.PI * 2
@@ -348,7 +380,9 @@ export function initializeConfetti() {
       context.globalAlpha = Math.max(0, this.opacity);
       context.fillStyle = this.color;
 
-      if (this.shape === "rect") {
+      if (this.shape === "star") {
+        drawStar(context, 0, 0, 5, this.size * 0.8, this.size * 0.4);
+      } else if (this.shape === "rect") {
         context.fillRect(-this.size / 2, -this.size / 4, this.size, this.size / 2);
       } else {
         context.beginPath();
@@ -387,7 +421,7 @@ export function initializeConfetti() {
   // Interactive Confetti Button
   const triggerBtn = document.getElementById("confetti-trigger");
   if (triggerBtn) {
-    triggerBtn.addEventListener("click", (e) => {
+    triggerBtn.addEventListener("click", () => {
       const rect = triggerBtn.getBoundingClientRect();
       launchConfetti(rect.left + rect.width / 2, rect.top, 100);
     });
@@ -400,6 +434,42 @@ export function initializeConfetti() {
   }, 600);
 }
 
+export function initializeCopyAddress() {
+  const copyBtn = document.getElementById("copy-address-btn");
+  const copyText = document.getElementById("copy-btn-text");
+  if (!copyBtn) return;
+
+  copyBtn.addEventListener("click", () => {
+    const addr = "Ice & Spice Restaurant, Aliganj, Lucknow, Uttar Pradesh";
+    const onSuccess = () => {
+      copyBtn.classList.add("is-copied");
+      if (copyText) copyText.textContent = "Copied! ✓";
+      setTimeout(() => {
+        copyBtn.classList.remove("is-copied");
+        if (copyText) copyText.textContent = "Copy Address";
+      }, 2500);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(onSuccess, () => {
+        onFallback(addr, onSuccess);
+      });
+    } else {
+      onFallback(addr, onSuccess);
+    }
+  });
+
+  function onFallback(addr, cb) {
+    const input = document.createElement("input");
+    input.value = addr;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+    if (cb) cb();
+  }
+}
+
 // Global browser init
 if (typeof document !== "undefined") {
   if (document.readyState === "loading") {
@@ -408,11 +478,13 @@ if (typeof document !== "undefined") {
       () => {
         initializeCountdown();
         initializeConfetti();
+        initializeCopyAddress();
       },
       { once: true }
     );
   } else {
     initializeCountdown();
     initializeConfetti();
+    initializeCopyAddress();
   }
 }

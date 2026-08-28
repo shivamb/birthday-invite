@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ayansh Turns Five//Birthday Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:ayansh-turns-five-20261019@birthday-invite
+DTSTAMP:20261019T120000Z
+DTSTART;TZID=Asia/Kolkata:20261019T193000
+DTEND;TZID=Asia/Kolkata:20261019T230000
+SUMMARY:Ayansh Turns Five | 5th Birthday Celebration
+LOCATION:Ice & Spice Restaurant\, Aliganj\, Lucknow
+DESCRIPTION:Join us to celebrate Ayansh's fifth birthday with cake\, dinner\, music & fun!
+URL:https://maps.app.goo.gl/E6jdKA1MRbC3WBb38
+END:VEVENT
+END:VCALENDAR

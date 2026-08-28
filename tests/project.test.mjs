@@ -9,8 +9,8 @@ test("contains a complete dependency-free invitation project", () => {
     "index.html",
     "styles.css",
     "script.js",
-    "assets/shreya-birthday.webp",
-    "assets/shreya-turns-three.ics",
+    "assets/ayansh-birthday.webp",
+    "assets/ayansh-turns-five.ics",
   ];
 
   for (const file of requiredFiles) {
@@ -22,7 +22,7 @@ test("contains a complete dependency-free invitation project", () => {
   }
 
   const html = readFileSync(new URL("index.html", projectRoot), "utf8");
-  assert.match(html, /Shreya Turns Three \| Birthday Invitation/i);
+  assert.match(html, /Ayansh Turns Five \| Birthday Invitation/i);
   assert.match(html, /Ice &amp; Spice Restaurant/i);
   assert.match(html, /https:\/\/maps\.app\.goo\.gl\/E6jdKA1MRbC3WBb38/i);
   assert.match(html, /https:\/\/wa\.me\/919696687334/i);
@@ -34,7 +34,7 @@ test("calculates countdown values and clamps at zero", async () => {
   const { getCountdownParts } = await import(
     new URL("script.js", projectRoot)
   );
-  const target = Date.parse("2026-08-19T19:30:00+05:30");
+  const target = Date.parse("2026-10-19T19:30:00+05:30");
   const oneDayTwoHoursThreeMinutesFourSeconds =
     ((1 * 24 + 2) * 60 * 60 + 3 * 60 + 4) * 1000;
 
@@ -51,7 +51,7 @@ test("calculates countdown values and clamps at zero", async () => {
     concluded: false,
   });
 
-  const end = Date.parse("2026-08-19T23:00:00+05:30");
+  const end = Date.parse("2026-10-19T23:00:00+05:30");
   assert.deepEqual(getCountdownParts(target, end + 1000, end), {
     days: 0,
     hours: 0,
