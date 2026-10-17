@@ -78,6 +78,11 @@ When making updates, ensure alignment with the official event parameters:
   - Primary Background: Midnight Sapphire & Royal Navy gradient (`#030a16` to `#061325`).
   - Accent / Gold: Warm champagne, radiant gold, and vibrant sapphire tones (`#f5cf6d`, `#ffd700`, `#3b82f6`).
   - Glass / Cards: Translucent dark overlays with subtle backdrop blurs and gold borders.
+- **Iconography & Visual Assets**:
+  - **Zero Emojis Policy**: Do NOT use system Unicode emojis (e.g. 🎂, ✨, ⭐, 💖, 🔊, 🔇, 🔗, 👤, 💬, 📋, 👨‍👩‍👧‍👦, 🎉, etc.) anywhere in the UI — including buttons, headers, timeline items, quick RSVP chips, wishing form, or badges. System emojis render inconsistently across platforms and break premium visual design.
+  - **Use Icons and SVG Images (Not Emojis)**: Always use clean, scalable vector icons (SVG) or SVG images.
+  - **Colored & Themed Icons**: Icons can and should be colored where appropriate to match the theme (e.g. radiant gold `#ffd700` / `#ffd56b` for stars & cakes, celestial cyan `#38bdf8` for space & rockets, romantic rose `#ff758c` for hearts & love, emerald `#34d399` for RSVPs).
+  - **Crisp & Scalable**: SVG icons render razor-sharp across all Retina and high-DPI displays without pixelation.
 - **Animations**:
   - CSS keyframes for floating balloons (gold, sapphire, champagne), twinkle sparkles, and ambient glow pulses.
   - HTML5 Canvas confetti with physics (gravity, rotation, velocity decay, and color randomization).
@@ -113,3 +118,7 @@ npm test
    - Maintain Open Graph (`og:*`), Twitter Card (`twitter:*`), and canonical URL metadata inside `<head>` in `index.html`.
 4. **Code Quality & Validation**:
    - Run `npm test` after any modifications to verify zero regressions.
+5. **Iconography Enforcement (Icons & SVG Images, No Emojis)**:
+   - When adding or modifying UI elements, components, notifications, chips, or cards, always use vector SVG icons or SVG images.
+   - Do NOT introduce Unicode emojis.
+   - Apply appropriate theme colors or `currentColor` styling to icons.

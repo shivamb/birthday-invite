@@ -68,3 +68,47 @@ test("exports updateEventTexts for dynamic lifecycle states", async () => {
   );
   assert.equal(typeof updateEventTexts, "function");
 });
+
+test("exports Google Calendar URL and default wishes constants", async () => {
+  const { GOOGLE_CALENDAR_URL, DEFAULT_WISHES } = await import(
+    new URL("script.js", projectRoot)
+  );
+
+  assert.equal(typeof GOOGLE_CALENDAR_URL, "string");
+  assert.match(GOOGLE_CALENDAR_URL, /calendar\.google\.com\/calendar\/render/i);
+  assert.match(GOOGLE_CALENDAR_URL, /20261019T140000Z%2F20261019T173000Z|20261019T140000Z\/20261019T173000Z/);
+  assert.match(GOOGLE_CALENDAR_URL, /Ice/i);
+
+  assert.equal(Array.isArray(DEFAULT_WISHES), true);
+  assert.equal(DEFAULT_WISHES.length, 0);
+});
+
+test("exports Web Audio sound synthesizer functions", async () => {
+  const {
+    playPopSound,
+    playSparkleSound,
+    playSuccessSound,
+    isSoundMuted,
+    initializeSoundManager,
+  } = await import(new URL("script.js", projectRoot));
+
+  assert.equal(typeof playPopSound, "function");
+  assert.equal(typeof playSparkleSound, "function");
+  assert.equal(typeof playSuccessSound, "function");
+  assert.equal(typeof isSoundMuted, "function");
+  assert.equal(typeof initializeSoundManager, "function");
+});
+
+test("index.html contains Wishing Wall, Calendar options, and Top Controls", () => {
+  const html = readFileSync(new URL("index.html", projectRoot), "utf8");
+
+  assert.match(html, /wishing-wall-section/i);
+  assert.match(html, /id="wish-form"/i);
+  assert.match(html, /id="wish-author"/i);
+  assert.match(html, /id="wish-message"/i);
+  assert.match(html, /id="wishes-grid"/i);
+  assert.match(html, /calendar\.google\.com\/calendar\/render/i);
+  assert.match(html, /id="sound-toggle-btn"/i);
+  assert.match(html, /id="share-invite-btn"/i);
+});
+

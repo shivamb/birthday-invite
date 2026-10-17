@@ -15,7 +15,7 @@
     <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Ayansh's 5th Birthday Invitation" />
-    <meta property="og:title" content="✨ Ayansh is Turning 5! A Celestial Birthday Celebration 🎂" />
+    <meta property="og:title" content="Ayansh is Turning 5! A Celestial Birthday Celebration" />
     <meta
       property="og:description"
       content="Join us for Ayansh's 5th birthday celebration on Monday, Oct 19, 7:30 PM – 11:00 PM at Ice & Spice Restaurant, Aliganj. Tap to see the details & countdown!"
@@ -30,7 +30,7 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="✨ Ayansh Turns 5 | Birthday Celebration Invitation" />
+    <meta name="twitter:title" content="Ayansh Turns Five | Birthday Celebration Invitation" />
     <meta
       name="twitter:description"
       content="Join us for Ayansh's 5th birthday celebration on Monday, Oct 19, 7:30 PM – 11:00 PM at Ice & Spice Restaurant, Aliganj. Tap to see the invitation!"
@@ -48,9 +48,34 @@
 
     <link rel="preload" href="assets/ayansh-birthday.webp" as="image" />
     <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
+    <!-- script.js companion module: pure ES Module utilities for Node.js test runner -->
   </head>
   <body>
+    <!-- Floating Quick Controls (Sound Effects & Share) -->
+    <div class="top-controls-bar" aria-label="Page controls">
+      <button id="sound-toggle-btn" class="control-pill-btn is-active" type="button" aria-pressed="true" aria-label="Toggle sound effects">
+        <span class="control-icon" id="sound-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </span>
+        <span class="control-label" id="sound-label">Sound On</span>
+      </button>
+      <button id="share-invite-btn" class="control-pill-btn" type="button" aria-label="Share invitation">
+        <span class="control-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </span>
+        <span class="control-label" id="share-btn-text">Share Invite</span>
+      </button>
+    </div>
+
     <!-- Full-screen Celebratory Confetti Canvas -->
     <canvas id="confetti-canvas" aria-hidden="true"></canvas>
 
@@ -61,20 +86,20 @@
     </div>
 
     <!-- Floating Cosmic Balloons Animation Layer -->
-    <div class="balloon-container" aria-hidden="true">
-      <div class="floating-balloon balloon-gold" style="--left: 5%; --delay: -3s; --speed: 24s; --size: 58px;">
+    <div class="balloon-container" aria-label="Floating party balloons">
+      <div class="floating-balloon balloon-gold interactive" role="button" tabindex="0" aria-label="Pop gold floating balloon" style="--left: 5%; --delay: -3s; --speed: 24s; --size: 58px;">
         <div class="balloon-body"></div>
         <div class="balloon-string"></div>
       </div>
-      <div class="floating-balloon balloon-sapphire" style="--left: 90%; --delay: -15s; --speed: 28s; --size: 64px;">
+      <div class="floating-balloon balloon-sapphire interactive" role="button" tabindex="0" aria-label="Pop sapphire floating balloon" style="--left: 90%; --delay: -15s; --speed: 28s; --size: 64px;">
         <div class="balloon-body"></div>
         <div class="balloon-string"></div>
       </div>
-      <div class="floating-balloon balloon-aurora" style="--left: 78%; --delay: -8s; --speed: 26s; --size: 52px;">
+      <div class="floating-balloon balloon-aurora interactive" role="button" tabindex="0" aria-label="Pop aurora floating balloon" style="--left: 78%; --delay: -8s; --speed: 26s; --size: 52px;">
         <div class="balloon-body"></div>
         <div class="balloon-string"></div>
       </div>
-      <div class="floating-balloon balloon-champagne" style="--left: 18%; --delay: -12s; --speed: 30s; --size: 48px;">
+      <div class="floating-balloon balloon-champagne interactive" role="button" tabindex="0" aria-label="Pop champagne floating balloon" style="--left: 18%; --delay: -12s; --speed: 30s; --size: 48px;">
         <div class="balloon-body"></div>
         <div class="balloon-string"></div>
       </div>
@@ -108,7 +133,11 @@
               <i></i><i></i><i></i><i></i><i></i><i></i>
             </div>
             <div class="photo-badge">
-              <span class="badge-icon">⭐</span>
+              <span class="badge-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="#ffd56b">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </span>
               <span class="badge-text">19 · OCTOBER · 2026</span>
             </div>
           </div>
@@ -117,9 +146,17 @@
         <!-- Hero Copy & Invite Information -->
         <div class="hero-copy">
           <div class="festive-badge" data-hero-badge>
-            <span class="sparkle-icon">✨</span>
+            <span class="sparkle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b">
+                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
+              </svg>
+            </span>
             <span>YOU ARE CORDIALLY INVITED</span>
-            <span class="sparkle-icon">✨</span>
+            <span class="sparkle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b">
+                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
+              </svg>
+            </span>
           </div>
 
           <p class="eyebrow">5 Spectacular Orbits Around The Sun</p>
@@ -192,8 +229,9 @@
             data-target="2026-10-19T19:30:00+05:30"
             data-end="2026-10-19T23:00:00+05:30"
             aria-label="Countdown to Ayansh's birthday celebration"
-            aria-live="polite"
+            aria-live="off"
           >
+            <div class="sr-only" aria-live="polite" id="countdown-status-announcer">Countdown to celebration is active</div>
             <div class="countdown-header">
               <div class="countdown-title-wrap">
                 <svg class="timer-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -203,7 +241,10 @@
                 <p class="countdown-kicker">COUNTDOWN TO CELEBRATION</p>
               </div>
               <button class="confetti-btn" id="confetti-trigger" aria-label="Pop Confetti">
-                ✨ <span>Pop Confetti!</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
+                </svg>
+                <span>Pop Confetti!</span>
               </button>
             </div>
 
@@ -225,7 +266,11 @@
                 <span>SECONDS</span>
               </div>
             </div>
-            <p class="countdown-message" data-countdown-message>🎉 It's Celebration Time! Let's Party! 🎂</p>
+            <p class="countdown-message" data-countdown-message>
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="#ffd56b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <span>It's Celebration Time! Let's Party!</span>
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path><path d="M2 21h20"></path><line x1="12" y1="7" x2="12" y2="11"></line><path d="M12 4a1 1 0 0 0-1 1c0 .7 1 1.5 1 1.5s1-.8 1-1.5a1 1 0 0 0-1-1z" fill="#f59e0b"></path></svg>
+            </p>
           </section>
 
           <!-- Primary Call to Action Buttons -->
@@ -259,9 +304,17 @@
 
         <div class="section-intro">
           <div class="festive-pill">
-            <span class="party-icon">⭐</span>
+            <span class="party-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </span>
             <span data-highlights-pill-text>CELESTIAL HIGHLIGHTS</span>
-            <span class="party-icon">✨</span>
+            <span class="party-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b">
+                <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
+              </svg>
+            </span>
           </div>
           <h2 id="details-title" data-highlights-title>A Magical Evening<br /><em>Among The Stars</em></h2>
           <p class="section-lead" data-highlights-lead>
@@ -291,10 +344,27 @@
             <p class="card-main-info">Monday, October 19, 2026</p>
             <p class="card-sub-info" data-when-sub-info><strong>7:30 PM – 11:00 PM</strong> · Dinner &amp; Cake Cutting</p>
             <div class="card-footer">
-              <a href="assets/ayansh-turns-five.ics" download class="card-action-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
-                <span>Add to Calendar (.ics)</span>
-              </a>
+              <div class="card-action-group">
+                <a
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ayansh%27s+5th+Birthday+Celebration+%F0%9F%8E%82&dates=20261019T140000Z/20261019T173000Z&details=Join+us+for+Ayansh%27s+5th+Birthday+Celebration%21+A+magical+evening+of+cake+cutting%2C+cosmic+games%2C+dinner+feast%2C+and+joyous+memories.+http%3A%2F%2Fayansh.hostapp.in&location=Ice+%26+Spice+Restaurant%2C+Aliganj%2C+Lucknow%2C+Uttar+Pradesh&sf=true&output=xml"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="card-action-btn primary-gcal-btn"
+                  id="primary-gcal-link"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  <span>Add to Google Calendar</span>
+                </a>
+                <a href="assets/ayansh-turns-five.ics" download class="card-action-btn secondary-cal-btn" id="secondary-ics-link">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+                  <span>Apple / Outlook (.ics)</span>
+                </a>
+              </div>
             </div>
           </article>
 
@@ -332,7 +402,13 @@
         <!-- Party Schedule Timeline Section -->
         <section class="schedule-section" aria-labelledby="schedule-heading">
           <div class="schedule-header">
-            <h3 class="schedule-title" id="schedule-heading">✨ Party Itinerary &amp; Timeline</h3>
+            <h3 class="schedule-title" id="schedule-heading">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Party Itinerary &amp; Timeline</span>
+            </h3>
           </div>
           <div class="schedule-timeline">
             <div class="timeline-item">
@@ -368,18 +444,145 @@
 
         <!-- Interactive 1-Tap Quick RSVP Bar -->
         <section class="quick-rsvp-section" aria-labelledby="quick-rsvp-heading">
-          <h3 class="quick-rsvp-title" id="quick-rsvp-heading">💬 Quick 1-Tap RSVP</h3>
+          <h3 class="quick-rsvp-title" id="quick-rsvp-heading">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Quick 1-Tap RSVP</span>
+          </h3>
           <p class="quick-rsvp-sub">Tap your response below to confirm via WhatsApp in seconds:</p>
           <div class="quick-rsvp-grid">
-            <a class="rsvp-option-btn" href="https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20attending%20Ayansh%27s%20birthday%20celebration%20with%20family%21%20%F0%9F%91%A8%E2%80%8D%F0%9F%91%A9%E2%80%8D%F0%9F%91%A7%E2%80%8D%F0%9F%91%A6%F0%9F%8E%89" target="_blank" rel="noreferrer">
-              <span>👨‍👩‍👧‍👦 Attending with Family</span>
+            <a class="rsvp-option-btn" href="https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20attending%20Ayansh%27s%20birthday%20celebration%20with%20family%21" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Attending with Family</span>
             </a>
-            <a class="rsvp-option-btn" href="https://wa.me/919696687334?text=Hi%2C%20I%27ll%20definitely%20be%20there%20for%20Ayansh%27s%205th%20birthday%21%20%F0%9F%8E%82%E2%9C%A8" target="_blank" rel="noreferrer">
-              <span>🎉 Count Us In!</span>
+            <a class="rsvp-option-btn" href="https://wa.me/919696687334?text=Hi%2C%20I%27ll%20definitely%20be%20there%20for%20Ayansh%27s%205th%20birthday%21" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span>Count Us In!</span>
             </a>
-            <a class="rsvp-option-btn" href="https://wa.me/919696687334?text=Hi%2C%20sending%20lots%20of%20love%2C%20wishes%20and%20blessings%20to%20little%20Ayansh%21%20%F0%9F%92%96%E2%AD%90" target="_blank" rel="noreferrer">
-              <span>💖 Sending Warm Wishes</span>
+            <a class="rsvp-option-btn" href="https://wa.me/919696687334?text=Hi%2C%20sending%20lots%20of%20love%2C%20wishes%20and%20blessings%20to%20little%20Ayansh%21" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="#ff758c" stroke="none" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span>Sending Warm Wishes</span>
             </a>
+          </div>
+        </section>
+
+        <!-- Galaxy Wishing & Birthday Blessings Section -->
+        <section class="wishing-wall-section" id="wishes" aria-labelledby="wishing-wall-heading">
+          <div class="wishing-wall-glow" aria-hidden="true"></div>
+          <div class="section-intro">
+            <div class="festive-pill">
+              <span class="party-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </span>
+              <span>BIRTHDAY BLESSINGS &amp; WISHES</span>
+              <span class="party-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b">
+                  <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/>
+                </svg>
+              </span>
+            </div>
+            <h2 id="wishing-wall-heading">Send Birthday Wishes<br /><em>For Little Ayansh</em></h2>
+            <p class="section-lead">
+              Send your loving blessing, playful cheer, or celebration wishes directly to Ayansh &amp; family on WhatsApp!
+            </p>
+          </div>
+
+          <div class="wishing-card-container">
+            <!-- Interactive Wish Form (Direct WhatsApp + Copy) -->
+            <form class="wish-form" id="wish-form" onsubmit="return false;">
+              <div class="form-row">
+                <label for="wish-author" class="form-label">Your Name or Family</label>
+                <div class="input-with-icon">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    id="wish-author"
+                    name="author"
+                    class="wish-input"
+                    placeholder="e.g., Uncle Rahul or Sunita Chachi"
+                    maxlength="50"
+                    autocomplete="name"
+                  />
+                </div>
+              </div>
+
+              <!-- Quick Blessing Chips -->
+              <div class="quick-chips-wrapper">
+                <span class="chips-label">Quick blessings (tap to insert into your wish):</span>
+                <div class="quick-chips-list" role="group" aria-label="Quick blessing phrases">
+                  <button type="button" class="wish-chip" data-chip="Happy 5th Birthday Ayansh! Have the sweetest celebration!">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path><path d="M12 11V7"></path><path d="M12 4a1 1 0 0 0 0 2"></path></svg>
+                    <span>Happy 5th Birthday!</span>
+                  </button>
+                  <button type="button" class="wish-chip" data-chip="May you always shine as bright as a superstar!">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd700" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <span>Always Shine Bright!</span>
+                  </button>
+                  <button type="button" class="wish-chip" data-chip="To infinity and beyond! Keep exploring!">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg>
+                    <span>To Infinity &amp; Beyond!</span>
+                  </button>
+                  <button type="button" class="wish-chip" data-chip="Sending endless love, big hugs, and warm blessings!">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="#ff758c" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>Endless Love &amp; Hugs!</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="wish-message" class="form-label">Your Wish or Blessing</label>
+                <textarea
+                  id="wish-message"
+                  name="message"
+                  class="wish-textarea"
+                  placeholder="Write your loving message or warm blessing for Ayansh..."
+                  maxlength="280"
+                  rows="3"
+                ></textarea>
+                <div class="form-helper">
+                  <span id="char-counter">0 / 280</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="submit-wish-btn" id="send-wa-wish-btn">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width: 1.15rem; height: 1.15rem;">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                  </svg>
+                  <span>Send Wish via WhatsApp</span>
+                </button>
+                <button type="button" class="wa-wish-btn" id="copy-wish-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                  </svg>
+                  <span>Copy Wish Text</span>
+                </button>
+              </div>
+
+              <div class="wish-status-banner" id="wish-status-banner" role="status" aria-live="polite"></div>
+            </form>
+
+            <!-- Dynamic Guest Wishing Wall -->
+            <div class="wishes-grid" id="wishes-grid" aria-label="Wishes for Ayansh"></div>
           </div>
         </section>
 
@@ -428,8 +631,14 @@
             <svg class="action-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
 
-          <!-- Add to Calendar Button -->
-          <a class="action action-cal" href="assets/ayansh-turns-five.ics" download>
+          <!-- Add to Calendar Button (Google Calendar direct + fallback) -->
+          <a
+            class="action action-cal"
+            data-action-cal-link
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ayansh%27s+5th+Birthday+Celebration+%F0%9F%8E%82&dates=20261019T140000Z/20261019T173000Z&details=Join+us+for+Ayansh%27s+5th+Birthday+Celebration%21+A+magical+evening+of+cake+cutting%2C+cosmic+games%2C+dinner+feast%2C+and+joyous+memories.+http%3A%2F%2Fayansh.hostapp.in&location=Ice+%26+Spice+Restaurant%2C+Aliganj%2C+Lucknow%2C+Uttar+Pradesh&sf=true&output=xml"
+            target="_blank"
+            rel="noreferrer"
+          >
             <div class="action-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -452,7 +661,22 @@
       <!-- Closing Footer Section -->
       <footer class="closing">
         <div class="closing-glow" aria-hidden="true"></div>
-        <div class="closing-stars" aria-hidden="true">⭐ · ✨ · 🎂 · ✨ · ⭐</div>
+        <div class="closing-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#ffd56b">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span class="ornament-dot">✦</span>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path>
+            <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path>
+            <path d="M12 11V7"></path>
+            <path d="M12 4a1 1 0 0 0 0 2"></path>
+          </svg>
+          <span class="ornament-dot">✦</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#ffd56b">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
         <p class="closing-quote">Five years of astronomical joy, boundless curiosity &amp; wonderful adventures</p>
         <h2 class="closing-title" data-closing-title>We Can’t Wait to Celebrate With You!</h2>
         
@@ -473,39 +697,459 @@
     </main>
 
     <script>
-      // Immediate Countdown, Copy Address & Confetti Engine
+      // ==========================================================================
+      // Ayansh Turns Five | Complete Self-Contained Celebration Engine
+      // Compatible with file:// protocol and static hosting (Zero CORS restrictions)
+      // ==========================================================================
       (function () {
-        // Copy address interaction
+        // --- 1. Audio Synthesizer (Web Audio API - Zero External Files) ---
+        var audioCtx = null;
+        var isMuted = false;
+
+        function getAudioContext() {
+          if (!audioCtx) {
+            var AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+              audioCtx = new AudioContextClass();
+            }
+          }
+          if (audioCtx && audioCtx.state === "suspended") {
+            audioCtx.resume();
+          }
+          return audioCtx;
+        }
+
+        function playPopSound() {
+          if (isMuted) return;
+          var ctx = getAudioContext();
+          if (!ctx) return;
+          try {
+            var now = ctx.currentTime;
+            var osc = ctx.createOscillator();
+            var gain = ctx.createGain();
+            osc.type = "sine";
+            osc.frequency.setValueAtTime(420, now);
+            osc.frequency.exponentialRampToValueAtTime(70, now + 0.12);
+            gain.gain.setValueAtTime(0.3, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.13);
+          } catch (e) {}
+        }
+
+        function playSparkleSound() {
+          if (isMuted) return;
+          var ctx = getAudioContext();
+          if (!ctx) return;
+          try {
+            var notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+            var now = ctx.currentTime;
+            notes.forEach(function (freq, idx) {
+              var osc = ctx.createOscillator();
+              var gain = ctx.createGain();
+              osc.type = "triangle";
+              var start = now + idx * 0.055;
+              osc.frequency.setValueAtTime(freq, start);
+              gain.gain.setValueAtTime(0, start);
+              gain.gain.linearRampToValueAtTime(0.18, start + 0.02);
+              gain.gain.exponentialRampToValueAtTime(0.001, start + 0.28);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(start);
+              osc.stop(start + 0.3);
+            });
+          } catch (e) {}
+        }
+
+        function playSuccessSound() {
+          if (isMuted) return;
+          var ctx = getAudioContext();
+          if (!ctx) return;
+          try {
+            var now = ctx.currentTime;
+            [659.25, 880.0].forEach(function (freq, idx) {
+              var osc = ctx.createOscillator();
+              var gain = ctx.createGain();
+              osc.type = "sine";
+              var start = now + idx * 0.08;
+              osc.frequency.setValueAtTime(freq, start);
+              gain.gain.setValueAtTime(0, start);
+              gain.gain.linearRampToValueAtTime(0.2, start + 0.02);
+              gain.gain.exponentialRampToValueAtTime(0.001, start + 0.22);
+              osc.connect(gain);
+              gain.connect(ctx.destination);
+              osc.start(start);
+              osc.stop(start + 0.24);
+            });
+          } catch (e) {}
+        }
+
+        // --- 2. Top Controls (Sound Toggle & Share Button) ---
+        var soundBtn = document.getElementById("sound-toggle-btn");
+        var soundIcon = document.getElementById("sound-icon");
+        var soundLabel = document.getElementById("sound-label");
+
+        var SPEAKER_ON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+        var SPEAKER_OFF_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+
+        function updateSoundUI() {
+          if (!soundBtn) return;
+          soundBtn.classList.toggle("is-active", !isMuted);
+          soundBtn.setAttribute("aria-pressed", String(!isMuted));
+          if (soundIcon) soundIcon.innerHTML = isMuted ? SPEAKER_OFF_SVG : SPEAKER_ON_SVG;
+          if (soundLabel) soundLabel.textContent = isMuted ? "Sound Off" : "Sound On";
+        }
+
+        try {
+          if (localStorage.getItem("ayansh_sound_muted") === "true") {
+            isMuted = true;
+          }
+        } catch (e) {}
+        updateSoundUI();
+
+        if (soundBtn) {
+          soundBtn.addEventListener("click", function () {
+            isMuted = !isMuted;
+            try {
+              localStorage.setItem("ayansh_sound_muted", String(isMuted));
+            } catch (e) {}
+            updateSoundUI();
+            if (!isMuted) {
+              getAudioContext();
+              playSparkleSound();
+            }
+          });
+        }
+
+        // Pre-warm audio on user interaction
+        function unlockAudio() {
+          getAudioContext();
+          window.removeEventListener("pointerdown", unlockAudio);
+          window.removeEventListener("keydown", unlockAudio);
+        }
+        window.addEventListener("pointerdown", unlockAudio, { passive: true, once: true });
+        window.addEventListener("keydown", unlockAudio, { passive: true, once: true });
+
+        // Share button
+        var shareBtn = document.getElementById("share-invite-btn");
+        var shareLabel = document.getElementById("share-btn-text");
+
+        function copyShareLink() {
+          var url = window.location.origin && window.location.origin !== "null"
+            ? window.location.origin + window.location.pathname
+            : "http://ayansh.hostapp.in";
+
+          var onCopied = function () {
+            playSuccessSound();
+            if (shareBtn) shareBtn.classList.add("is-active");
+            if (shareLabel) shareLabel.textContent = "Copied! ✓";
+            setTimeout(function () {
+              if (shareBtn) shareBtn.classList.remove("is-active");
+              if (shareLabel) shareLabel.textContent = "Share Invite";
+            }, 2500);
+          };
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(onCopied, function () {
+              fallbackCopy(url, onCopied);
+            });
+          } else {
+            fallbackCopy(url, onCopied);
+          }
+        }
+
+        function fallbackCopy(text, cb) {
+          var input = document.createElement("input");
+          input.value = text;
+          document.body.appendChild(input);
+          input.select();
+          try {
+            document.execCommand("copy");
+          } catch (e) {}
+          document.body.removeChild(input);
+          if (cb) cb();
+        }
+
+        if (shareBtn) {
+          shareBtn.addEventListener("click", function () {
+            var url = "http://ayansh.hostapp.in";
+            var shareData = {
+              title: "Ayansh Turns Five | Birthday Celebration Invitation",
+              text: "You are cordially invited to celebrate Ayansh's 5th Birthday on Monday, Oct 19 at Ice & Spice Restaurant, Aliganj! Tap to see the details & countdown:",
+              url: url
+            };
+            if (navigator.share) {
+              navigator.share(shareData).then(function () {
+                playSuccessSound();
+              }).catch(function (e) {
+                if (e && e.name === "AbortError") return;
+                copyShareLink();
+              });
+            } else {
+              copyShareLink();
+            }
+          });
+        }
+
+        // --- 3. Confetti Engine & Floating Balloons ---
+        var canvas = document.getElementById("confetti-canvas");
+        var launchConfetti = function () {};
+
+        if (canvas) {
+          var ctx = canvas.getContext("2d");
+          var width = (canvas.width = window.innerWidth);
+          var height = (canvas.height = window.innerHeight);
+
+          window.addEventListener("resize", function () {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+          }, { passive: true });
+
+          var colors = ["#ffd56b", "#38bdf8", "#8b5cf6", "#ffeaa7", "#f59e0b", "#ff758c", "#ffffff"];
+          var particles = [];
+          var isConfettiRunning = false;
+
+          launchConfetti = function (originX, originY, count) {
+            if (typeof originX === "undefined") originX = width / 2;
+            if (typeof originY === "undefined") originY = height / 3;
+            if (typeof count === "undefined") count = 75;
+
+            for (var i = 0; i < count; i++) {
+              var rand = Math.random();
+              var shape = rand > 0.6 ? "star" : rand > 0.3 ? "rect" : "circle";
+              var angle = Math.random() * Math.PI * 2;
+              var speed = Math.random() * 8 + 3;
+
+              particles.push({
+                x: originX,
+                y: originY,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                size: Math.random() * 9 + 5,
+                shape: shape,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed - 5,
+                gravity: 0.12,
+                rotation: Math.random() * 360,
+                rotationSpeed: (Math.random() - 0.5) * 8,
+                opacity: 1,
+                decay: Math.random() * 0.008 + 0.005,
+              });
+            }
+
+            if (!isConfettiRunning) {
+              isConfettiRunning = true;
+              requestAnimationFrame(animateConfetti);
+            }
+          };
+
+          function drawStar(c, cx, cy, spikes, outerRadius, innerRadius) {
+            var rot = (Math.PI / 2) * 3;
+            var step = Math.PI / spikes;
+            c.beginPath();
+            c.moveTo(cx, cy - outerRadius);
+            for (var i = 0; i < spikes; i++) {
+              var x = cx + Math.cos(rot) * outerRadius;
+              var y = cy + Math.sin(rot) * outerRadius;
+              c.lineTo(x, y);
+              rot += step;
+              x = cx + Math.cos(rot) * innerRadius;
+              y = cy + Math.sin(rot) * innerRadius;
+              c.lineTo(x, y);
+              rot += step;
+            }
+            c.lineTo(cx, cy - outerRadius);
+            c.closePath();
+            c.fill();
+          }
+
+          function animateConfetti() {
+            ctx.clearRect(0, 0, width, height);
+            var remaining = [];
+
+            for (var i = 0; i < particles.length; i++) {
+              var p = particles[i];
+              p.x += p.vx;
+              p.y += p.vy;
+              p.vy += p.gravity;
+              p.vx *= 0.98;
+              p.rotation += p.rotationSpeed;
+              p.opacity -= p.decay;
+
+              if (p.opacity > 0 && p.y < height + 50) {
+                remaining.push(p);
+
+                ctx.save();
+                ctx.translate(p.x, p.y);
+                ctx.rotate((p.rotation * Math.PI) / 180);
+                ctx.globalAlpha = Math.max(0, p.opacity);
+                ctx.fillStyle = p.color;
+
+                if (p.shape === "star") {
+                  drawStar(ctx, 0, 0, 5, p.size * 0.8, p.size * 0.4);
+                } else if (p.shape === "rect") {
+                  ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+                } else {
+                  ctx.beginPath();
+                  ctx.arc(0, 0, p.size / 2.5, 0, Math.PI * 2);
+                  ctx.fill();
+                }
+                ctx.restore();
+              }
+            }
+
+            particles = remaining;
+            if (particles.length > 0) {
+              requestAnimationFrame(animateConfetti);
+            } else {
+              isConfettiRunning = false;
+            }
+          }
+
+          // Confetti button
+          var confettiTrigger = document.getElementById("confetti-trigger");
+          if (confettiTrigger) {
+            confettiTrigger.addEventListener("click", function () {
+              var rect = confettiTrigger.getBoundingClientRect();
+              launchConfetti(rect.left + rect.width / 2, rect.top, 90);
+              playPopSound();
+              playSparkleSound();
+            });
+          }
+
+          // Initial celebratory burst
+          setTimeout(function () {
+            launchConfetti(width * 0.3, height * 0.25, 40);
+            launchConfetti(width * 0.7, height * 0.25, 40);
+          }, 700);
+
+          // Interactive floating balloons
+          var balloons = document.querySelectorAll(".floating-balloon.interactive");
+          balloons.forEach(function (b) {
+            var popBalloon = function () {
+              if (b.classList.contains("is-popped")) return;
+              b.classList.add("is-popped");
+              var rect = b.getBoundingClientRect();
+              launchConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 25);
+              playPopSound();
+              setTimeout(function () {
+                b.classList.remove("is-popped");
+              }, 3500);
+            };
+            b.addEventListener("click", popBalloon);
+            b.addEventListener("keydown", function (e) {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                popBalloon();
+              }
+            });
+          });
+        }
+
+        // --- 4. Birthday Wishes & WhatsApp Integration ---
+        var wishAuthor = document.getElementById("wish-author");
+        var wishMessage = document.getElementById("wish-message");
+        var charCounter = document.getElementById("char-counter");
+        var sendWaWishBtn = document.getElementById("send-wa-wish-btn");
+        var copyWishBtn = document.getElementById("copy-wish-btn");
+        var wishStatusBanner = document.getElementById("wish-status-banner");
+        var chips = document.querySelectorAll(".wish-chip");
+
+        chips.forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var chipText = chip.getAttribute("data-chip") || chip.textContent.trim();
+            if (wishMessage) {
+              if (!wishMessage.value.trim()) {
+                wishMessage.value = chipText;
+              } else {
+                wishMessage.value += " " + chipText;
+              }
+              if (charCounter) charCounter.textContent = wishMessage.value.length + " / 280";
+              wishMessage.focus();
+              playSparkleSound();
+            }
+          });
+        });
+
+        if (wishMessage && charCounter) {
+          wishMessage.addEventListener("input", function () {
+            charCounter.textContent = wishMessage.value.length + " / 280";
+          });
+        }
+
+        function showWishBanner(msg, type) {
+          if (!wishStatusBanner) return;
+          wishStatusBanner.textContent = msg;
+          wishStatusBanner.className = "wish-status-banner is-visible is-" + type;
+          setTimeout(function () {
+            wishStatusBanner.classList.remove("is-visible");
+          }, 4500);
+        }
+
+        if (sendWaWishBtn) {
+          sendWaWishBtn.addEventListener("click", function () {
+            var author = (wishAuthor ? wishAuthor.value : "").trim() || "A Well-wisher";
+            var msg = (wishMessage ? wishMessage.value : "").trim();
+            if (!msg) {
+              msg = "Happy 5th Birthday Ayansh! Wishing you endless happiness, adventure, and joy!";
+            }
+            var fullText = 'Hi! Here is our birthday wish for Ayansh: "' + msg + '" — From: ' + author;
+            var waUrl = "https://wa.me/919696687334?text=" + encodeURIComponent(fullText);
+
+            playSparkleSound();
+            if (typeof launchConfetti === "function") {
+              var rect = sendWaWishBtn.getBoundingClientRect();
+              launchConfetti(rect.left + rect.width / 2, rect.top, 60);
+            }
+            showWishBanner("Opening WhatsApp with your blessing for Ayansh...", "success");
+            window.open(waUrl, "_blank", "noopener,noreferrer");
+          });
+        }
+
+        if (copyWishBtn) {
+          copyWishBtn.addEventListener("click", function () {
+            var author = (wishAuthor ? wishAuthor.value : "").trim() || "A Well-wisher";
+            var msg = (wishMessage ? wishMessage.value : "").trim();
+            if (!msg) {
+              msg = "Happy 5th Birthday Ayansh! Wishing you endless happiness, adventure, and joy!";
+            }
+            var fullText = 'Hi! Here is our birthday wish for Ayansh: "' + msg + '" — From: ' + author;
+
+            fallbackCopy(fullText, function () {
+              playSuccessSound();
+              showWishBanner("Wish text copied to clipboard! You can paste and send it anywhere.", "success");
+            });
+          });
+        }
+
+        // --- 5. Copy Venue Address ---
         var copyBtn = document.getElementById("copy-address-btn");
         var copyText = document.getElementById("copy-btn-text");
         if (copyBtn) {
           copyBtn.addEventListener("click", function () {
             var addr = "Ice & Spice Restaurant, Aliganj, Lucknow, Uttar Pradesh";
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              navigator.clipboard.writeText(addr).then(onSuccess, onFallback);
-            } else {
-              onFallback();
-            }
-            function onSuccess() {
+            var onSuccess = function () {
               copyBtn.classList.add("is-copied");
               if (copyText) copyText.textContent = "Copied! ✓";
+              playSuccessSound();
               setTimeout(function () {
                 copyBtn.classList.remove("is-copied");
                 if (copyText) copyText.textContent = "Copy Address";
               }, 2500);
-            }
-            function onFallback() {
-              var input = document.createElement("input");
-              input.value = addr;
-              document.body.appendChild(input);
-              input.select();
-              document.execCommand("copy");
-              document.body.removeChild(input);
-              onSuccess();
+            };
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(addr).then(onSuccess, function () {
+                fallbackCopy(addr, onSuccess);
+              });
+            } else {
+              fallbackCopy(addr, onSuccess);
             }
           });
         }
 
+        // --- 6. Event Lifecycle States & Dynamic Page Texts ---
         function updatePageTexts(state) {
           var isConcluded = state === "concluded";
           var isHappening = state === "happening";
@@ -518,12 +1162,16 @@
 
           var heroBadge = document.querySelector("[data-hero-badge]");
           if (heroBadge) {
+            var badgeStar = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+            var badgeSparkle = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>';
+            var badgeClock = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
+
             if (isConcluded) {
-              heroBadge.innerHTML = '<span class="sparkle-icon">✨</span><span>CELEBRATION CONCLUDED · THANK YOU!</span><span class="sparkle-icon">✨</span>';
+              heroBadge.innerHTML = '<span class="sparkle-icon">' + badgeStar + '</span><span>CELEBRATION CONCLUDED · THANK YOU!</span><span class="sparkle-icon">' + badgeStar + '</span>';
             } else if (isHappening) {
-              heroBadge.innerHTML = '<span class="sparkle-icon">🎉</span><span>CELEBRATION IN PROGRESS</span><span class="sparkle-icon">🎉</span>';
+              heroBadge.innerHTML = '<span class="sparkle-icon">' + badgeClock + '</span><span>CELEBRATION IN PROGRESS</span><span class="sparkle-icon">' + badgeClock + '</span>';
             } else {
-              heroBadge.innerHTML = '<span class="sparkle-icon">✨</span><span>YOU ARE CORDIALLY INVITED</span><span class="sparkle-icon">✨</span>';
+              heroBadge.innerHTML = '<span class="sparkle-icon">' + badgeSparkle + '</span><span>YOU ARE CORDIALLY INVITED</span><span class="sparkle-icon">' + badgeSparkle + '</span>';
             }
           }
 
@@ -644,9 +1292,9 @@
           var closingTitle = document.querySelector("[data-closing-title]");
           if (closingTitle) {
             if (isConcluded) {
-              closingTitle.textContent = "Thank You for Making Ayansh's Birthday So Special! 💖";
+              closingTitle.textContent = "Thank You for Making Ayansh's Birthday So Special!";
             } else if (isHappening) {
-              closingTitle.textContent = "Let's Make Tonight Truly Unforgettable! 🎉";
+              closingTitle.textContent = "Let's Make Tonight Truly Unforgettable!";
             } else {
               closingTitle.textContent = "We Can’t Wait to Celebrate With You!";
             }
@@ -667,18 +1315,19 @@
           var closingWaText = document.querySelector("[data-closing-wa-text]");
           if (closingWaLink) {
             if (isConcluded) {
-              closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Ayansh%21%20%F0%9F%8E%82%E2%9C%A8";
+              closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Ayansh%21";
               if (closingWaText) closingWaText.textContent = "Share Memories & Chat on WhatsApp";
             } else if (isHappening) {
-              closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+              closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Ayansh%27s%20birthday%20celebration%21";
               if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
             } else {
-              closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+              closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21";
               if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
             }
           }
         }
 
+        // --- 7. Real-Time Countdown Engine ---
         function runCountdown() {
           var countdown = document.querySelector("[data-countdown]");
           if (!countdown) return;
@@ -694,6 +1343,9 @@
           var kickerEl = countdown.querySelector(".countdown-kicker");
           var lastState = null;
 
+          var msgStarSvg = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+          var msgCakeSvg = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path><path d="M12 11V7"></path><path d="M12 4a1 1 0 0 0 0 2"></path></svg>';
+
           function pad(n) { return String(n).padStart(2, "0"); }
 
           function tick() {
@@ -707,7 +1359,19 @@
             if (daysEl) daysEl.textContent = pad(d);
             if (hoursEl) hoursEl.textContent = pad(h);
             if (minutesEl) minutesEl.textContent = pad(m);
-            if (secondsEl) secondsEl.textContent = pad(s);
+
+            if (secondsEl) {
+              var sVal = pad(s);
+              if (secondsEl.textContent !== sVal) {
+                secondsEl.textContent = sVal;
+                var box = secondsEl.closest(".timer-box");
+                if (box) {
+                  box.classList.remove("tick-pulse");
+                  void box.offsetWidth;
+                  box.classList.add("tick-pulse");
+                }
+              }
+            }
 
             var state = "upcoming";
 
@@ -715,13 +1379,13 @@
               state = "concluded";
               countdown.classList.add("is-finished", "is-concluded");
               if (kickerEl) kickerEl.textContent = "CELEBRATION CONCLUDED";
-              if (msgEl) msgEl.textContent = "✨ Thank You for Celebrating with Ayansh! 💖";
+              if (msgEl) msgEl.innerHTML = '<span class="sparkle-icon">' + msgStarSvg + '</span><span>Thank You for Celebrating with Ayansh!</span><span class="sparkle-icon">' + msgStarSvg + '</span>';
             } else if (diff <= 0) {
               state = "happening";
               countdown.classList.add("is-finished");
               countdown.classList.remove("is-concluded");
               if (kickerEl) kickerEl.textContent = "HAPPENING NOW";
-              if (msgEl) msgEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
+              if (msgEl) msgEl.innerHTML = '<span class="sparkle-icon">' + msgCakeSvg + '</span><span>It\'s Celebration Time! Let\'s Party!</span><span class="sparkle-icon">' + msgCakeSvg + '</span>';
             } else {
               state = "upcoming";
               countdown.classList.remove("is-finished", "is-concluded");
@@ -731,8 +1395,20 @@
             if (state !== lastState) {
               lastState = state;
               updatePageTexts(state);
+
+              var announcer = document.getElementById("countdown-status-announcer");
+              if (announcer) {
+                if (state === "concluded") {
+                  announcer.textContent = "The celebration has concluded. Thank you for showering Ayansh with love!";
+                } else if (state === "happening") {
+                  announcer.textContent = "The celebration is happening right now!";
+                } else {
+                  announcer.textContent = "Countdown active: " + d + " days, " + h + " hours until party begins.";
+                }
+              }
             }
           }
+
           tick();
           setInterval(tick, 1000);
         }

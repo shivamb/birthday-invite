@@ -39,12 +39,16 @@ export function updateEventTexts(state) {
   // Hero festive badge
   const heroBadge = document.querySelector("[data-hero-badge]");
   if (heroBadge) {
+    const badgeStar = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+    const badgeSparkle = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"/></svg>';
+    const badgeClock = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>';
+
     if (isConcluded) {
-      heroBadge.innerHTML = '<span class="sparkle-icon">✨</span><span>CELEBRATION CONCLUDED · THANK YOU!</span><span class="sparkle-icon">✨</span>';
+      heroBadge.innerHTML = '<span class="sparkle-icon">' + badgeStar + '</span><span>CELEBRATION CONCLUDED · THANK YOU!</span><span class="sparkle-icon">' + badgeStar + '</span>';
     } else if (isHappening) {
-      heroBadge.innerHTML = '<span class="sparkle-icon">🎉</span><span>CELEBRATION IN PROGRESS</span><span class="sparkle-icon">🎉</span>';
+      heroBadge.innerHTML = '<span class="sparkle-icon">' + badgeClock + '</span><span>CELEBRATION IN PROGRESS</span><span class="sparkle-icon">' + badgeClock + '</span>';
     } else {
-      heroBadge.innerHTML = '<span class="sparkle-icon">✨</span><span>YOU ARE CORDIALLY INVITED</span><span class="sparkle-icon">✨</span>';
+      heroBadge.innerHTML = '<span class="sparkle-icon">' + badgeSparkle + '</span><span>YOU ARE CORDIALLY INVITED</span><span class="sparkle-icon">' + badgeSparkle + '</span>';
     }
   }
 
@@ -174,9 +178,9 @@ export function updateEventTexts(state) {
   const closingTitle = document.querySelector("[data-closing-title]");
   if (closingTitle) {
     if (isConcluded) {
-      closingTitle.textContent = "Thank You for Making Ayansh's Birthday So Special! 💖";
+      closingTitle.textContent = "Thank You for Making Ayansh's Birthday So Special!";
     } else if (isHappening) {
-      closingTitle.textContent = "Let's Make Tonight Truly Unforgettable! 🎉";
+      closingTitle.textContent = "Let's Make Tonight Truly Unforgettable!";
     } else {
       closingTitle.textContent = "We Can’t Wait to Celebrate With You!";
     }
@@ -197,13 +201,13 @@ export function updateEventTexts(state) {
   const closingWaText = document.querySelector("[data-closing-wa-text]");
   if (closingWaLink) {
     if (isConcluded) {
-      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Ayansh%21%20%F0%9F%8E%82%E2%9C%A8";
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20sending%20wishes%20and%20photos%20for%20Ayansh%21";
       if (closingWaText) closingWaText.textContent = "Share Memories & Chat on WhatsApp";
     } else if (isHappening) {
-      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20reaching%20out%20during%20Ayansh%27s%20birthday%20celebration%21";
       if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
     } else {
-      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21%20%F0%9F%8E%89";
+      closingWaLink.href = "https://wa.me/919696687334?text=Hi%2C%20we%27ll%20be%20joining%20Ayansh%27s%20birthday%20celebration%21";
       if (closingWaText) closingWaText.textContent = "Chat with Us on WhatsApp";
     }
   }
@@ -225,6 +229,9 @@ export function initializeCountdown() {
   const messageEl = countdown.querySelector("[data-countdown-message]");
   const kickerEl = countdown.querySelector(".countdown-kicker");
 
+  const msgStarSvg = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+  const msgCakeSvg = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8"></path><path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1"></path><path d="M12 11V7"></path><path d="M12 4a1 1 0 0 0 0 2"></path></svg>';
+
   let lastState = null;
 
   const update = () => {
@@ -234,7 +241,19 @@ export function initializeCountdown() {
     if (daysEl) daysEl.textContent = formatPart(parts.days);
     if (hoursEl) hoursEl.textContent = formatPart(parts.hours);
     if (minutesEl) minutesEl.textContent = formatPart(parts.minutes);
-    if (secondsEl) secondsEl.textContent = formatPart(parts.seconds);
+
+    if (secondsEl) {
+      const nextSec = formatPart(parts.seconds);
+      if (secondsEl.textContent !== nextSec) {
+        secondsEl.textContent = nextSec;
+        const box = secondsEl.closest(".timer-box");
+        if (box) {
+          box.classList.remove("tick-pulse");
+          void box.offsetWidth;
+          box.classList.add("tick-pulse");
+        }
+      }
+    }
 
     let currentState = "upcoming";
 
@@ -243,7 +262,7 @@ export function initializeCountdown() {
       countdown.classList.add("is-finished", "is-concluded");
       if (kickerEl) kickerEl.textContent = "CELEBRATION CONCLUDED";
       if (messageEl) {
-        messageEl.textContent = "✨ Thank You for Celebrating with Ayansh! 💖";
+        messageEl.innerHTML = '<span class="sparkle-icon">' + msgStarSvg + '</span><span>Thank You for Celebrating with Ayansh!</span><span class="sparkle-icon">' + msgStarSvg + '</span>';
       }
     } else if (parts.expired) {
       currentState = "happening";
@@ -251,7 +270,7 @@ export function initializeCountdown() {
       countdown.classList.remove("is-concluded");
       if (kickerEl) kickerEl.textContent = "HAPPENING NOW";
       if (messageEl) {
-        messageEl.textContent = "🎉 It's Celebration Time! Let's Party! 🎂";
+        messageEl.innerHTML = '<span class="sparkle-icon">' + msgCakeSvg + '</span><span>It\'s Celebration Time! Let\'s Party!</span><span class="sparkle-icon">' + msgCakeSvg + '</span>';
       }
     } else {
       currentState = "upcoming";
@@ -262,6 +281,17 @@ export function initializeCountdown() {
     if (currentState !== lastState) {
       lastState = currentState;
       updateEventTexts(currentState);
+
+      const announcer = document.getElementById("countdown-status-announcer");
+      if (announcer) {
+        if (currentState === "concluded") {
+          announcer.textContent = "The celebration has concluded. Thank you for showering Ayansh with love!";
+        } else if (currentState === "happening") {
+          announcer.textContent = "The celebration is happening right now!";
+        } else {
+          announcer.textContent = `Countdown active: ${parts.days} days, ${parts.hours} hours until the party begins.`;
+        }
+      }
     }
 
     return parts.concluded || (parts.expired && now >= endMs);
@@ -424,14 +454,26 @@ export function initializeConfetti() {
     triggerBtn.addEventListener("click", () => {
       const rect = triggerBtn.getBoundingClientRect();
       launchConfetti(rect.left + rect.width / 2, rect.top, 100);
+      playPopSound();
+      playSparkleSound();
     });
   }
 
-  // Initial celebratory burst
-  setTimeout(() => {
-    launchConfetti(width * 0.3, height * 0.25, 45);
-    launchConfetti(width * 0.7, height * 0.25, 45);
-  }, 600);
+  // Expose launchConfetti for other modules (wishing wall, interactive balloons)
+  if (typeof window !== "undefined") {
+    window.launchConfettiAt = launchConfetti;
+  }
+
+  // Initial celebratory burst (respects reduced motion)
+  if (
+    typeof window !== "undefined" &&
+    (!window.matchMedia || !window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  ) {
+    setTimeout(() => {
+      launchConfetti(width * 0.3, height * 0.25, 45);
+      launchConfetti(width * 0.7, height * 0.25, 45);
+    }, 600);
+  }
 }
 
 export function initializeCopyAddress() {
@@ -444,6 +486,7 @@ export function initializeCopyAddress() {
     const onSuccess = () => {
       copyBtn.classList.add("is-copied");
       if (copyText) copyText.textContent = "Copied! ✓";
+      playSuccessSound();
       setTimeout(() => {
         copyBtn.classList.remove("is-copied");
         if (copyText) copyText.textContent = "Copy Address";
@@ -470,21 +513,468 @@ export function initializeCopyAddress() {
   }
 }
 
+// ==========================================================================
+// Web Audio API Synthesizer (Zero External Audio Files)
+// ==========================================================================
+let audioCtx = null;
+let isMuted = false;
+
+function getAudioContext() {
+  if (typeof window === "undefined") return null;
+  if (!audioCtx) {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtx = new AudioContextClass();
+    }
+  }
+  if (audioCtx && audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
+  return audioCtx;
+}
+
+export function isSoundMuted() {
+  return isMuted;
+}
+
+export function playPopSound() {
+  if (isMuted || typeof window === "undefined") return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(420, now);
+    osc.frequency.exponentialRampToValueAtTime(70, now + 0.12);
+
+    gain.gain.setValueAtTime(0.3, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+
+    osc.start(now);
+    osc.stop(now + 0.13);
+  } catch (err) {
+    // Graceful fallback
+  }
+}
+
+export function playSparkleSound() {
+  if (isMuted || typeof window === "undefined") return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+    const now = ctx.currentTime;
+
+    notes.forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = "triangle";
+      const start = now + idx * 0.055;
+      osc.frequency.setValueAtTime(freq, start);
+
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(0.18, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.28);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(start);
+      osc.stop(start + 0.3);
+    });
+  } catch (err) {
+    // Graceful fallback
+  }
+}
+
+export function playSuccessSound() {
+  if (isMuted || typeof window === "undefined") return;
+  const ctx = getAudioContext();
+  if (!ctx) return;
+
+  try {
+    const now = ctx.currentTime;
+    [659.25, 880.0].forEach((freq, idx) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = "sine";
+      const start = now + idx * 0.08;
+      osc.frequency.setValueAtTime(freq, start);
+
+      gain.gain.setValueAtTime(0, start);
+      gain.gain.linearRampToValueAtTime(0.2, start + 0.02);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + 0.22);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(start);
+      osc.stop(start + 0.24);
+    });
+  } catch (err) {
+    // Graceful fallback
+  }
+}
+
+export function initializeSoundManager() {
+  if (typeof window === "undefined" || typeof document === "undefined") return;
+
+  const savedMuted = localStorage.getItem("ayansh_sound_muted");
+  isMuted = savedMuted === "true";
+
+  const soundBtn = document.getElementById("sound-toggle-btn");
+  const soundIcon = document.getElementById("sound-icon");
+  const soundLabel = document.getElementById("sound-label");
+
+  const SPEAKER_ON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+  const SPEAKER_OFF_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+
+  const updateBtnUI = () => {
+    if (!soundBtn) return;
+    soundBtn.classList.toggle("is-active", !isMuted);
+    soundBtn.setAttribute("aria-pressed", String(!isMuted));
+    if (soundIcon) soundIcon.innerHTML = isMuted ? SPEAKER_OFF_SVG : SPEAKER_ON_SVG;
+    if (soundLabel) soundLabel.textContent = isMuted ? "Sound Off" : "Sound On";
+  };
+
+  updateBtnUI();
+
+  if (soundBtn) {
+    soundBtn.addEventListener("click", () => {
+      isMuted = !isMuted;
+      localStorage.setItem("ayansh_sound_muted", String(isMuted));
+      updateBtnUI();
+      if (!isMuted) {
+        getAudioContext();
+        playSparkleSound();
+      }
+    });
+  }
+
+  // Pre-warm audio context on first user pointer or key gesture
+  const unlockAudio = () => {
+    getAudioContext();
+    window.removeEventListener("pointerdown", unlockAudio);
+    window.removeEventListener("keydown", unlockAudio);
+  };
+  window.addEventListener("pointerdown", unlockAudio, { passive: true, once: true });
+  window.addEventListener("keydown", unlockAudio, { passive: true, once: true });
+}
+
+// ==========================================================================
+// Interactive Floating Balloons
+// ==========================================================================
+export function initializeInteractiveBalloons() {
+  if (typeof document === "undefined") return;
+
+  const balloons = document.querySelectorAll(".floating-balloon.interactive");
+  balloons.forEach((balloon) => {
+    const handlePop = () => {
+      if (balloon.classList.contains("is-popped")) return;
+      balloon.classList.add("is-popped");
+      playPopSound();
+
+      if (typeof window !== "undefined" && typeof window.launchConfettiAt === "function") {
+        const rect = balloon.getBoundingClientRect();
+        window.launchConfettiAt(rect.left + rect.width / 2, rect.top + rect.height / 2, 25);
+      }
+
+      setTimeout(() => {
+        balloon.classList.remove("is-popped");
+      }, 3500);
+    };
+
+    balloon.addEventListener("click", handlePop);
+    balloon.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handlePop();
+      }
+    });
+  });
+}
+
+// ==========================================================================
+// 1-Tap Share Invitation
+// ==========================================================================
+export function initializeShareInvite() {
+  if (typeof document === "undefined") return;
+
+  const shareBtn = document.getElementById("share-invite-btn");
+  const shareLabel = document.getElementById("share-btn-text");
+  if (!shareBtn) return;
+
+  const shareData = {
+    title: "Ayansh Turns Five | Birthday Celebration Invitation",
+    text: "You are cordially invited to celebrate Ayansh's 5th Birthday on Monday, Oct 19 at Ice & Spice Restaurant, Aliganj! Tap to view details & RSVP:",
+    url: (typeof window !== "undefined" && window.location.href) || "http://ayansh.hostapp.in",
+  };
+
+  shareBtn.addEventListener("click", async () => {
+    if (typeof navigator !== "undefined" && navigator.share) {
+      try {
+        await navigator.share(shareData);
+        playSuccessSound();
+        return;
+      } catch (err) {
+        if (err.name === "AbortError") return;
+      }
+    }
+
+    const shareUrl = (typeof window !== "undefined" && window.location.href) || "http://ayansh.hostapp.in";
+    const onCopied = () => {
+      playSuccessSound();
+      shareBtn.classList.add("is-active");
+      if (shareLabel) shareLabel.textContent = "Copied! ✓";
+      setTimeout(() => {
+        shareBtn.classList.remove("is-active");
+        if (shareLabel) shareLabel.textContent = "Share Invite";
+      }, 2500);
+    };
+
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(shareUrl).then(onCopied, () => {
+        fallbackCopy(shareUrl, onCopied);
+      });
+    } else {
+      fallbackCopy(shareUrl, onCopied);
+    }
+  });
+
+  function fallbackCopy(text, cb) {
+    const input = document.createElement("input");
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand("copy");
+    document.body.removeChild(input);
+    if (cb) cb();
+  }
+}
+
+// ==========================================================================
+// Galaxy Wishing Wall & Guestbook
+// ==========================================================================
+export const DEFAULT_WISHES = [];
+
+export const GOOGLE_CALENDAR_URL =
+  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
+  encodeURIComponent("Ayansh's 5th Birthday Celebration") +
+  "&dates=20261019T140000Z/20261019T173000Z" +
+  "&details=" +
+  encodeURIComponent("Join us for Ayansh's 5th Birthday Celebration! A magical evening of cake cutting, cosmic games, dinner feast, and joyous memories.\n\nVenue: Ice & Spice Restaurant, Aliganj, Lucknow\nWebsite: http://ayansh.hostapp.in") +
+  "&location=" +
+  encodeURIComponent("Ice & Spice Restaurant, Aliganj, Lucknow, Uttar Pradesh") +
+  "&sf=true&output=xml";
+
+export function initializeWishingWall() {
+  if (typeof document === "undefined") return;
+
+  const form = document.getElementById("wish-form");
+  const authorInput = document.getElementById("wish-author");
+  const messageInput = document.getElementById("wish-message");
+  const charCounter = document.getElementById("char-counter");
+  const wishesGrid = document.getElementById("wishes-grid");
+  const statusBanner = document.getElementById("wish-status-banner");
+  const waBtn = document.getElementById("wa-wish-btn");
+  const chips = document.querySelectorAll(".wish-chip");
+
+  if (!wishesGrid) return;
+
+  const STORAGE_KEY = "ayansh_guest_wishes";
+
+  function getStoredWishes() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          // Filter out any legacy fake wishes
+          return parsed.filter((w) => !w.id || !String(w.id).startsWith("wish-default-"));
+        }
+      }
+    } catch (e) {
+      // LocalStorage access fallback
+    }
+    return DEFAULT_WISHES;
+  }
+
+  function saveWishes(wishes) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
+    } catch (e) {
+      // Ignore
+    }
+  }
+
+  function renderWishCard(wish, isNew = false) {
+    const article = document.createElement("article");
+    article.className = "wish-card" + (isNew ? " is-new" : "");
+    article.id = wish.id || ("wish-" + Math.random().toString(36).substr(2, 9));
+
+    const initial = (wish.author || "Guest").trim().charAt(0).toUpperCase();
+    const starSvg = '<svg viewBox="0 0 24 24" width="14" height="14" fill="#ffd56b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>';
+    const heartSvg = '<svg viewBox="0 0 24 24" width="12" height="12" fill="#ff758c" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>';
+
+    article.innerHTML = `
+      <div class="wish-card-header">
+        <div class="wish-author-wrap">
+          <div class="wish-avatar" aria-hidden="true">${escapeHTML(initial)}</div>
+          <strong class="wish-author">${escapeHTML(wish.author)}</strong>
+        </div>
+        <span class="wish-badge">${heartSvg} <span>${escapeHTML(wish.badge || "Warm Wish")}</span></span>
+      </div>
+      <p class="wish-message">"${escapeHTML(wish.message)}"</p>
+      <div class="wish-footer">
+        <span class="wish-time">${escapeHTML(wish.timestamp || "Celebration Guest")}</span>
+        <span class="wish-star-icon" aria-hidden="true">${starSvg}</span>
+      </div>
+    `;
+    return article;
+  }
+
+  function escapeHTML(str) {
+    return String(str || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function renderAll() {
+    const wishes = getStoredWishes();
+    wishesGrid.innerHTML = "";
+    wishes.forEach((w) => {
+      wishesGrid.appendChild(renderWishCard(w));
+    });
+  }
+
+  renderAll();
+
+  // Quick Chips
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const text = chip.getAttribute("data-chip") || chip.textContent.trim();
+      if (messageInput) {
+        if (!messageInput.value.trim()) {
+          messageInput.value = text;
+        } else {
+          messageInput.value += " " + text;
+        }
+        updateCharCount();
+        messageInput.focus();
+        playSparkleSound();
+      }
+    });
+  });
+
+  // Character counter
+  function updateCharCount() {
+    if (charCounter && messageInput) {
+      const len = messageInput.value.length;
+      charCounter.textContent = `${len} / 280`;
+    }
+  }
+
+  if (messageInput) {
+    messageInput.addEventListener("input", updateCharCount);
+  }
+
+  // Direct WhatsApp Button click
+  if (waBtn) {
+    waBtn.addEventListener("click", () => {
+      const author = (authorInput ? authorInput.value : "").trim() || "A Well-wisher";
+      const message = (messageInput ? messageInput.value : "").trim() || "Happy 5th Birthday Ayansh! Wishing you lots of love and joy!";
+      const text = `Hi, here is our birthday wish for Ayansh: "${message}" — From: ${author}`;
+      const url = `https://wa.me/919696687334?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+      playSparkleSound();
+    });
+  }
+
+  // Form submit
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const author = (authorInput ? authorInput.value : "").trim();
+      const message = (messageInput ? messageInput.value : "").trim();
+
+      if (!author || !message) {
+        showStatus("Please enter your name and a warm wish for Ayansh!", "error");
+        return;
+      }
+
+      const newWish = {
+        id: "wish-" + Date.now(),
+        author: author,
+        message: message,
+        badge: "Star Wish",
+        timestamp: "Just now",
+      };
+
+      const current = getStoredWishes();
+      const updated = [newWish, ...current];
+      saveWishes(updated);
+
+      const card = renderWishCard(newWish, true);
+      wishesGrid.insertBefore(card, wishesGrid.firstChild);
+
+      // Play audio and confetti
+      playSparkleSound();
+      if (typeof window !== "undefined" && typeof window.launchConfettiAt === "function") {
+        const postBtn = document.getElementById("post-wish-btn");
+        if (postBtn) {
+          const rect = postBtn.getBoundingClientRect();
+          window.launchConfettiAt(rect.left + rect.width / 2, rect.top, 80);
+        }
+      }
+
+      showStatus("Thank you! Your wish is now shining on Ayansh's wall!", "success");
+
+      // Reset form
+      if (authorInput) authorInput.value = "";
+      if (messageInput) messageInput.value = "";
+      updateCharCount();
+    });
+  }
+
+  function showStatus(text, type) {
+    if (!statusBanner) return;
+    statusBanner.textContent = text;
+    statusBanner.className = `wish-status-banner is-visible is-${type}`;
+    setTimeout(() => {
+      statusBanner.classList.remove("is-visible");
+    }, 4500);
+  }
+}
+
 // Global browser init
 if (typeof document !== "undefined") {
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => {
-        initializeCountdown();
-        initializeConfetti();
-        initializeCopyAddress();
-      },
-      { once: true }
-    );
-  } else {
+  const initAll = () => {
     initializeCountdown();
     initializeConfetti();
     initializeCopyAddress();
+    initializeSoundManager();
+    initializeInteractiveBalloons();
+    initializeShareInvite();
+    initializeWishingWall();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAll, { once: true });
+  } else {
+    initAll();
   }
 }
+
