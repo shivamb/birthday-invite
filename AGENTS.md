@@ -47,6 +47,8 @@ The application delivers an interactive, mobile-responsive invitation experience
 │   ├── og-image.jpg              # High-resolution social media preview image (Open Graph / Twitter)
 │   ├── ayansh-birthday.webp      # Optimized WebP hero portrait (5th birthday)
 │   └── ayansh-turns-five.ics     # Standard RFC-5545 iCalendar event invite
+├── scripts/
+│   └── build.mjs                 # Zero-dependency build script (bundles to dist/ for static hosts)
 └── tests/
     └── project.test.mjs          # Automated test suite (Node.js built-in runner)
 ```

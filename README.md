@@ -77,3 +77,20 @@ Run the test suite using Node.js built-in test runner:
 ```bash
 npm test
 ```
+
+## 🚀 Build & Deployment (Cloudflare Pages)
+
+To create a static production bundle in `dist/`:
+
+```bash
+npm run build
+```
+
+### Cloudflare Pages Configuration
+
+In the Cloudflare Dashboard under **Workers & Pages > [Project] > Settings > Builds & deployments**:
+
+- **Framework preset**: `None`
+- **Build command**: `npm run build`
+- **Build output directory**: `dist`
+- *(Alternatively for direct static serving without build: leave Build command empty and set Build output directory to `.`)*
