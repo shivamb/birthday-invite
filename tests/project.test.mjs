@@ -110,6 +110,9 @@ test("index.html contains Wishing Wall, Calendar options, and Top Controls", () 
   assert.match(html, /calendar\.google\.com\/calendar\/render/i);
   assert.match(html, /id="sound-toggle-btn"/i);
   assert.match(html, /id="share-invite-btn"/i);
+  assert.match(html, /id="voice-note-cta-btn"/i);
+  assert.match(html, /id="send-voice-wish-btn"/i);
+  assert.match(html, /id="quick-voice-rsvp-btn"/i);
 });
 
 test("build script generates a complete production dist directory", async () => {

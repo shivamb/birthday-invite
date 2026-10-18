@@ -903,6 +903,39 @@ export function initializeWishingWall() {
     });
   }
 
+  // Voice Note WhatsApp Prompt Handlers
+  const voiceCta = document.getElementById("voice-note-cta-btn");
+  const voiceWishBtn = document.getElementById("send-voice-wish-btn");
+  const quickVoiceRsvp = document.getElementById("quick-voice-rsvp-btn");
+
+  function triggerVoiceNoteBlessing(sourceBtn) {
+    const author = (authorInput ? authorInput.value : "").trim();
+    const intro = author
+      ? `Hi Ayansh! Here is a special birthday voice note blessing from ${author}: (press and hold mic to record in WhatsApp)`
+      : `Hi Ayansh! Here is a special birthday voice note blessing for you: (press and hold mic to record in WhatsApp)`;
+    const url = `https://wa.me/919696687334?text=${encodeURIComponent(intro)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    playSparkleSound();
+    if (typeof window !== "undefined" && typeof window.launchConfettiAt === "function" && sourceBtn) {
+      const rect = sourceBtn.getBoundingClientRect();
+      window.launchConfettiAt(rect.left + rect.width / 2, rect.top, 70);
+    }
+    showStatus("Opening WhatsApp... Hold down the microphone icon in WhatsApp to send your voice note!", "success");
+  }
+
+  if (voiceCta) {
+    voiceCta.addEventListener("click", () => triggerVoiceNoteBlessing(voiceCta));
+  }
+  if (voiceWishBtn) {
+    voiceWishBtn.addEventListener("click", () => triggerVoiceNoteBlessing(voiceWishBtn));
+  }
+  if (quickVoiceRsvp) {
+    quickVoiceRsvp.addEventListener("click", () => {
+      playSparkleSound();
+      showStatus("Opening WhatsApp... Hold down the microphone icon to record your voice note!", "success");
+    });
+  }
+
   // Form submit
   if (form) {
     form.addEventListener("submit", (e) => {

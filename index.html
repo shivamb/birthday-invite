@@ -474,6 +474,15 @@
               </svg>
               <span>Sending Warm Wishes</span>
             </a>
+            <a class="rsvp-option-btn rsvp-voice-btn" id="quick-voice-rsvp-btn" href="https://wa.me/919696687334?text=Hi%2C%20sending%20a%20birthday%20voice%20note%20blessing%20for%20Ayansh%21%20%28Hold%20mic%20in%20WhatsApp%20to%20send%29" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+              <span>Voice Note Blessing</span>
+            </a>
           </div>
         </section>
 
@@ -501,6 +510,39 @@
           </div>
 
           <div class="wishing-card-container">
+            <!-- Voice Note WhatsApp Blessing Card -->
+            <div class="voice-note-card">
+              <div class="voice-note-info">
+                <div class="voice-mic-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffd56b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                  </svg>
+                  <span class="voice-pulse-ring" aria-hidden="true"></span>
+                </div>
+                <div class="voice-note-text">
+                  <div class="voice-pill">
+                    <svg viewBox="0 0 24 24" width="10" height="10" fill="#38bdf8" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                    </svg>
+                    <span>INSTANT VOICE BLESSING</span>
+                  </div>
+                  <h3 class="voice-heading">Send a Voice Note via WhatsApp</h3>
+                  <p class="voice-desc">
+                    Little Ayansh loves hearing personal voices! Tap below to open WhatsApp, then press and hold the mic button in chat to send your voice note or birthday song.
+                  </p>
+                </div>
+              </div>
+              <button type="button" class="voice-note-action-btn" id="voice-note-cta-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                </svg>
+                <span>Record Voice Blessing</span>
+              </button>
+            </div>
+
             <!-- Interactive Wish Form (Direct WhatsApp + Copy) -->
             <form class="wish-form" id="wish-form" onsubmit="return false;">
               <div class="form-row">
@@ -568,6 +610,15 @@
                     <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
                   </svg>
                   <span>Send Wish via WhatsApp</span>
+                </button>
+                <button type="button" class="voice-wish-btn" id="send-voice-wish-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                  </svg>
+                  <span>Send Voice Blessing</span>
                 </button>
                 <button type="button" class="wa-wish-btn" id="copy-wish-btn">
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1104,6 +1155,49 @@
             }
             showWishBanner("Opening WhatsApp with your blessing for Ayansh...", "success");
             window.open(waUrl, "_blank", "noopener,noreferrer");
+          });
+        }
+
+        // Voice Note WhatsApp Prompt Handlers
+        var voiceNoteCtaBtn = document.getElementById("voice-note-cta-btn");
+        var sendVoiceWishBtn = document.getElementById("send-voice-wish-btn");
+        var quickVoiceRsvpBtn = document.getElementById("quick-voice-rsvp-btn");
+
+        function triggerVoiceBlessingPrompt(sourceBtn) {
+          var author = (wishAuthor ? wishAuthor.value : "").trim();
+          var intro = author
+            ? 'Hi Ayansh! Here is a special birthday voice note blessing from ' + author + ': (press and hold mic to record in WhatsApp)'
+            : 'Hi Ayansh! Here is a special birthday voice note blessing for you: (press and hold mic to record in WhatsApp)';
+          var waUrl = "https://wa.me/919696687334?text=" + encodeURIComponent(intro);
+
+          playSparkleSound();
+          if (typeof launchConfetti === "function") {
+            var target = sourceBtn || voiceNoteCtaBtn || sendWaWishBtn;
+            if (target) {
+              var rect = target.getBoundingClientRect();
+              launchConfetti(rect.left + rect.width / 2, rect.top, 70);
+            }
+          }
+          showWishBanner("Opening WhatsApp... Hold down the microphone icon in WhatsApp to send your voice note!", "success");
+          window.open(waUrl, "_blank", "noopener,noreferrer");
+        }
+
+        if (voiceNoteCtaBtn) {
+          voiceNoteCtaBtn.addEventListener("click", function () {
+            triggerVoiceBlessingPrompt(voiceNoteCtaBtn);
+          });
+        }
+
+        if (sendVoiceWishBtn) {
+          sendVoiceWishBtn.addEventListener("click", function () {
+            triggerVoiceBlessingPrompt(sendVoiceWishBtn);
+          });
+        }
+
+        if (quickVoiceRsvpBtn) {
+          quickVoiceRsvpBtn.addEventListener("click", function () {
+            playSparkleSound();
+            showWishBanner("Opening WhatsApp... Hold down the microphone icon to record your voice note!", "success");
           });
         }
 

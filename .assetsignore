@@ -1,0 +1,10 @@
+node_modules/
+.git/
+.github/
+dist/
+tests/
+scripts/
+package.json
+package-lock.json
+AGENTS.md
+README.md
