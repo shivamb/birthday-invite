@@ -47,13 +47,13 @@
     />
 
     <link rel="preload" href="assets/ayansh-birthday.webp?v=20261018c" as="image" />
-    <link rel="stylesheet" href="styles.css?v=20261018c" />
+    <link rel="stylesheet" href="styles.css?v=20261018d" />
     <!-- script.js companion module: pure ES Module utilities for Node.js test runner -->
   </head>
   <body>
     <!-- Floating Quick Controls (Sound Effects & Share) -->
     <div class="top-controls-bar" aria-label="Page controls">
-      <button id="sound-toggle-btn" class="control-pill-btn is-active" type="button" aria-pressed="true" aria-label="Toggle sound effects">
+      <button id="sound-toggle-btn" class="control-pill-btn is-active" type="button" aria-pressed="true" aria-label="Toggle sound effects" title="Toggle sound effects">
         <span class="control-icon" id="sound-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -62,7 +62,7 @@
         </span>
         <span class="control-label" id="sound-label">Sound On</span>
       </button>
-      <button id="share-invite-btn" class="control-pill-btn" type="button" aria-label="Share invitation">
+      <button id="share-invite-btn" class="control-pill-btn" type="button" aria-label="Share invitation" title="Share invitation">
         <span class="control-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"></circle>
@@ -849,6 +849,8 @@
           if (!soundBtn) return;
           soundBtn.classList.toggle("is-active", !isMuted);
           soundBtn.setAttribute("aria-pressed", String(!isMuted));
+          soundBtn.setAttribute("aria-label", isMuted ? "Unmute sound effects" : "Mute sound effects");
+          soundBtn.setAttribute("title", isMuted ? "Unmute sound effects" : "Mute sound effects");
           if (soundIcon) soundIcon.innerHTML = isMuted ? SPEAKER_OFF_SVG : SPEAKER_ON_SVG;
           if (soundLabel) soundLabel.textContent = isMuted ? "Sound Off" : "Sound On";
         }

@@ -643,6 +643,8 @@ export function initializeSoundManager() {
     if (!soundBtn) return;
     soundBtn.classList.toggle("is-active", !isMuted);
     soundBtn.setAttribute("aria-pressed", String(!isMuted));
+    soundBtn.setAttribute("aria-label", isMuted ? "Unmute sound effects" : "Mute sound effects");
+    soundBtn.setAttribute("title", isMuted ? "Unmute sound effects" : "Mute sound effects");
     if (soundIcon) soundIcon.innerHTML = isMuted ? SPEAKER_OFF_SVG : SPEAKER_ON_SVG;
     if (soundLabel) soundLabel.textContent = isMuted ? "Sound Off" : "Sound On";
   };
