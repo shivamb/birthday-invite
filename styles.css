@@ -341,7 +341,8 @@ main {
 .photo-panel {
   position: relative;
   width: 100%;
-  height: clamp(24rem, 50svh, 36rem);
+  aspect-ratio: 3 / 4;
+  max-height: 72svh;
   background: var(--space-850);
   overflow: hidden;
 }
@@ -356,8 +357,8 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 32%;
-  transform: scale(1.02);
+  object-position: center 35%;
+  transform: scale(1.01);
   animation: heroPhotoZoom 1.8s cubic-bezier(0.2, 0.65, 0.25, 1) both;
 }
 
@@ -376,8 +377,8 @@ main {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(3, 5, 17, 0.15) 0%, rgba(3, 5, 17, 0.45) 50%, rgba(3, 5, 17, 0.98) 96%),
-    linear-gradient(90deg, rgba(3, 5, 17, 0.3) 0%, transparent 50%, rgba(3, 5, 17, 0.3) 100%);
+    linear-gradient(180deg, rgba(3, 5, 17, 0.12) 0%, transparent 35%, rgba(3, 5, 17, 0.3) 72%, rgba(3, 5, 17, 0.96) 98%),
+    linear-gradient(90deg, rgba(3, 5, 17, 0.25) 0%, transparent 50%, rgba(3, 5, 17, 0.25) 100%);
 }
 
 .photo-border-glow {
@@ -1635,20 +1636,24 @@ body.is-event-concluded .festive-badge {
 @media (min-width: 1024px) {
   .hero {
     flex-direction: row;
-    align-items: stretch;
+    align-items: flex-start;
     min-height: 100vh;
   }
 
   .photo-panel {
     width: 46%;
-    height: auto;
+    height: 100vh;
     min-height: 100vh;
+    max-height: 100vh;
+    position: sticky;
+    top: 0;
+    aspect-ratio: auto;
   }
 
   .photo-vignette {
     background:
-      linear-gradient(90deg, rgba(3, 5, 17, 0) 65%, var(--space-950) 100%),
-      linear-gradient(180deg, rgba(3, 5, 17, 0.2) 0%, rgba(3, 5, 17, 0.7) 100%);
+      linear-gradient(90deg, rgba(3, 5, 17, 0) 70%, var(--space-950) 100%),
+      linear-gradient(180deg, rgba(3, 5, 17, 0.15) 0%, transparent 40%, rgba(3, 5, 17, 0.55) 100%);
   }
 
   .hero-copy {
